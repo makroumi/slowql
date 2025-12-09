@@ -39,29 +39,72 @@ def sql_split_statements(sql: str) -> list[str]:
     """
     if not sql:
         return []
+    
     parts: list[str] = []
-    cur: list[str] = []
+    current_stmt_chars: list[str] = []
+    
     in_squote, in_dquote, escape = False, False, False
-    for ch in sql:
-        if ch == "\\" and not escape:
+    in_single_line_comment, in_multi_line_comment = False, False
+
+    i = 0
+    while i < len(sql):
+        char = sql[i]
+        
+        # Handle escape characters
+        if char == "\\" and not escape:
             escape = True
-            cur.append(ch)
+            current_stmt_chars.append(char)
+            i += 1
             continue
-        if ch == "'" and not escape and not in_dquote:
+
+        # Handle multi-line comments /* */
+        if char == '/' and i + 1 < len(sql) and sql[i+1] == '*' and not in_squote and not in_dquote and not in_single_line_comment:
+            in_multi_line_comment = True
+            i += 2
+            continue
+        if char == '*' and i + 1 < len(sql) and sql[i+1] == '/' and in_multi_line_comment:
+            in_multi_line_comment = False
+            i += 2
+            continue
+        
+        if in_multi_line_comment:
+            i += 1
+            continue
+
+        # Handle single-line comments --
+        if char == '-' and i + 1 < len(sql) and sql[i+1] == '-' and not in_squote and not in_dquote:
+            in_single_line_comment = True
+            i += 1
+            continue
+        if char == '\n' and in_single_line_comment:
+            in_single_line_comment = False
+        
+        if in_single_line_comment:
+            i += 1
+            continue
+            
+        # Handle quotes
+        if char == "'" and not escape and not in_dquote:
             in_squote = not in_squote
-        elif ch == '"' and not escape and not in_squote:
+        elif char == '"' and not escape and not in_squote:
             in_dquote = not in_dquote
-        if ch == ";" and not in_squote and not in_dquote:
-            stmt = "".join(cur).strip()
+
+        # Handle statement terminator
+        if char == ";" and not in_squote and not in_dquote:
+            stmt = "".join(current_stmt_chars).strip()
             if stmt:
                 parts.append(stmt)
-            cur = []
+            current_stmt_chars = []
         else:
-            cur.append(ch)
+            current_stmt_chars.append(char)
+        
         escape = False
-    trailing = "".join(cur).strip()
+        i += 1
+        
+    trailing = "".join(current_stmt_chars).strip()
     if trailing:
         parts.append(trailing)
+        
     return parts
 
 

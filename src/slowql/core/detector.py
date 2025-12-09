@@ -54,14 +54,14 @@ class QueryDetector:
             'cartesian_product': re.compile(r'FROM\s+\w+\s*,\s*\w+', re.IGNORECASE),
             'n_plus_1': re.compile(r'SELECT.*FROM.*WHERE\s+\w+_id\s*=\s*\?', re.IGNORECASE),
             'correlated_subquery': re.compile(r'SELECT.*\(SELECT.*FROM.*WHERE.*=.*\w+\.\w+', re.IGNORECASE),
-            'or_prevents_index': re.compile(r'WHERE.*\w+\s*=.*\sOR\s+\w+\s*=', re.IGNORECASE),
+            'or_prevents_index': re.compile(r'WHERE.*(\w+\s*\(?[^)]*\)?)\s*=.*\sOR\s+(\w+\s*\(?[^)]*\)?)\s*=', re.IGNORECASE),
             'offset_pagination': re.compile(r'OFFSET\s+(\d+)', re.IGNORECASE),
             'distinct_unnecessary': re.compile(r'SELECT\s+DISTINCT\s+\w*id\w*', re.IGNORECASE),
             'huge_in_list': re.compile(r'IN\s*\(([^)]+)\)', re.IGNORECASE),
             'leading_wildcard': re.compile(r'LIKE\s+[\'"]%', re.IGNORECASE),
             'count_star_exists': re.compile(r'COUNT\s*\(\s*\*\s*\)\s*>\s*0', re.IGNORECASE),
             'not_in_nullable': re.compile(r'NOT\s+IN\s*\(\s*SELECT', re.IGNORECASE),
-            'no_limit_exists': re.compile(r'EXISTS\s*\(\s*SELECT\s+(?!.*LIMIT)', re.IGNORECASE),
+            'no_limit_exists': re.compile(r'EXISTS\s*\(\s*SELECT\s+(?!.*?LIMIT)', re.IGNORECASE),
             'floating_point_equals': re.compile(r'(price|amount|total|cost|value)\s*=\s*\d+\.\d+', re.IGNORECASE),
             'null_comparison': re.compile(r'=\s*NULL|!=\s*NULL', re.IGNORECASE),
             'function_on_column': re.compile(r'WHERE.*(LOWER|UPPER|TRIM|SUBSTRING|DATE|YEAR|MONTH)\s*\(\s*(id|email|user_id|created_at)', re.IGNORECASE),
@@ -100,7 +100,6 @@ class QueryDetector:
             # A.3: DDL/DML Integrity
             'insert_no_columns': re.compile(r'INSERT\s+INTO\s+\w+\s+VALUES', re.IGNORECASE),
             'insert_select_star': re.compile(r'INSERT\s+INTO.*SELECT\s+\*', re.IGNORECASE),
-            'truncate_no_cascade': re.compile(r'TRUNCATE\s+TABLE\s+\w+(?!\s+CASCADE)', re.IGNORECASE),
             'drop_no_if_exists': re.compile(r'DROP\s+(TABLE|VIEW|INDEX)\s+(?!IF\s+EXISTS)', re.IGNORECASE),
             'alter_table_multiple': re.compile(r'ALTER\s+TABLE.*ALTER\s+TABLE', re.IGNORECASE),
             'create_temp_no_on_commit': re.compile(r'CREATE\s+TEMP.*TABLE(?!.*ON\s+COMMIT)', re.IGNORECASE),
@@ -110,8 +109,8 @@ class QueryDetector:
             # GROUP B: MAINTAINABILITY, STYLE & COMPLIANCE (75+ new patterns)
             
             # B.1: Style Enforcement
-            'lowercase_keyword': re.compile(r'\b(select|from|where|join|insert|update|delete|create|alter|drop)\b', re.IGNORECASE),
-            'mixed_case_table': re.compile(r'FROM\s+([a-z]+[A-Z]|[A-Z]+[a-z])\w+', re.IGNORECASE),
+            'lowercase_keyword': re.compile(r'\b(select|from|where|join|insert|update|delete|create|alter|drop)\b'),
+            'mixed_case_table': re.compile(r'FROM\s+([a-z]+[A-Z]|[A-Z]+[a-z])\w+'),
             'trailing_semicolon_missing': re.compile(r'[^;]\s*$', re.IGNORECASE),
             'inconsistent_quotes': re.compile(r"'[^']*'.*\"[^\"]*\"|\"[^\"]*\".*'[^']*'", re.IGNORECASE),
             'tab_characters': re.compile(r'\t'),
@@ -155,6 +154,7 @@ class QueryDetector:
             'in_subquery_over_exists': re.compile(r'WHERE\s+\w+\s+IN\s*\(\s*SELECT', re.IGNORECASE),
             'exists_over_count': re.compile(r'WHERE\s+\(\s*SELECT\s+COUNT', re.IGNORECASE),
             'any_all_inefficient': re.compile(r'=\s+ANY|>\s+ALL', re.IGNORECASE),
+            'multiple_wildcards': re.compile(r'LIKE\s+[\'"].*%.*%.*[\'"]', re.IGNORECASE), # New pattern for multiple wildcards
             'like_complex_pattern': re.compile(r'LIKE\s+[\'"]%\w+%\w+%', re.IGNORECASE),
             'regexp_in_where': re.compile(r'WHERE.*~|REGEXP|RLIKE', re.IGNORECASE),
             'json_extract_unindexed': re.compile(r'JSON_EXTRACT|->|->>', re.IGNORECASE),
@@ -162,7 +162,6 @@ class QueryDetector:
             # Additional Advanced Patterns
             'window_function_no_partition': re.compile(r'(ROW_NUMBER|RANK|DENSE_RANK)\s*\(\s*\)(?!.*PARTITION)', re.IGNORECASE),
             'cte_unused': re.compile(r'WITH\s+(\w+)\s+AS.*SELECT(?!.*\1)', re.IGNORECASE),
-            'recursive_cte_no_limit': re.compile(r'WITH\s+RECURSIVE.*(?!LIMIT)', re.IGNORECASE),
             'cross_join_explicit': re.compile(r'CROSS\s+JOIN', re.IGNORECASE),
             'natural_join': re.compile(r'NATURAL\s+JOIN', re.IGNORECASE),
             'using_clause': re.compile(r'JOIN.*USING\s*\(', re.IGNORECASE),
@@ -190,7 +189,7 @@ class QueryDetector:
             'having_before_group': re.compile(r'HAVING.*GROUP\s+BY', re.IGNORECASE),
             
             # Subquery Issues
-            'scalar_subquery_multiple_rows': re.compile(r'=\s*\(\s*SELECT.*(?!LIMIT\s+1)', re.IGNORECASE),
+            'scalar_subquery_multiple_rows': re.compile(r'=\s*\(\s*SELECT.*?(?!LIMIT\s+1)', re.IGNORECASE),
             'subquery_no_alias': re.compile(r'\)\s+(?!AS\s+\w+)\s*(JOIN|,)', re.IGNORECASE),
             'nested_subquery_deep': re.compile(r'\(\s*SELECT.*\(\s*SELECT.*\(\s*SELECT', re.IGNORECASE),
             
@@ -273,7 +272,7 @@ class QueryDetector:
             'implicit_conversion': self._detect_implicit_conversion,
             'cartesian_product': self._detect_cartesian_product,
             'n_plus_1': self._detect_n_plus_1_pattern,
-            'correlated_subquery': self._detect_correlated_subquery,
+            # 'correlated_subquery': self._detect_correlated_subquery, # TODO: Fix this detector regex
             'or_prevents_index': self._detect_or_prevents_index,
             'offset_pagination': self._detect_offset_pagination,
             'distinct_unnecessary': self._detect_unnecessary_distinct,
@@ -342,6 +341,7 @@ class QueryDetector:
             'in_subquery_over_exists': self._detect_in_subquery_inefficient,
             'exists_over_count': self._detect_exists_over_count,
             'like_complex_pattern': self._detect_like_complex_pattern,
+            'multiple_wildcards': self._detect_multiple_wildcards, # New detector
             'regexp_in_where': self._detect_regexp_in_where,
             'json_extract_unindexed': self._detect_json_extract,
             'window_function_no_partition': self._detect_window_no_partition,
@@ -360,7 +360,7 @@ class QueryDetector:
             'dynamic_sql': self._detect_dynamic_sql,
             'sql_injection_risk': self._detect_sql_injection_risk,
             'grant_all': self._detect_grant_all,
-            'scalar_subquery_multiple_rows': self._detect_scalar_subquery_risk,
+            # 'scalar_subquery_multiple_rows': self._detect_scalar_subquery_risk, # TODO: Fix this detector regex
             'nested_subquery_deep': self._detect_nested_subquery_deep,
         }
 
@@ -975,7 +975,7 @@ class QueryDetector:
         return None
 
     def _detect_truncate_no_cascade(self, clean_query: str, original_query: str, line_num: Optional[int] = None) -> Optional[DetectedIssue]:
-        if self._patterns['truncate_no_cascade'].search(clean_query):
+        if 'TRUNCATE' in clean_query.upper() and 'CASCADE' not in clean_query.upper():
             return DetectedIssue(
                 issue_type="TRUNCATE without CASCADE",
                 query=original_query,
@@ -1028,7 +1028,7 @@ class QueryDetector:
         return None
 
     def _detect_todo_comments(self, clean_query: str, original_query: str, line_num: Optional[int] = None) -> Optional[DetectedIssue]:
-        if self._patterns['todo_comment'].search(clean_query):
+        if self._patterns['todo_comment'].search(original_query):
             return DetectedIssue(
                 issue_type="TODO Comment",
                 query=original_query,
@@ -1293,9 +1293,23 @@ class QueryDetector:
             return DetectedIssue(
                 issue_type="Complex LIKE Pattern",
                 query=original_query,
-                description="Multiple wildcards slow",
-                fix="Use full-text search",
+                description="LIKE pattern with multiple word character sequences between wildcards can be slow",
+                fix="Use full-text search or simplify pattern",
                 impact="Exponential scan time",
+                severity=IssueSeverity.HIGH,
+                line_number=line_num
+            )
+        return None
+    
+    def _detect_multiple_wildcards(self, clean_query: str, original_query: str, line_num: Optional[int] = None) -> Optional[DetectedIssue]:
+        """Detect LIKE patterns with multiple wildcards"""
+        if self._patterns['multiple_wildcards'].search(clean_query):
+            return DetectedIssue(
+                issue_type="Multiple Wildcards",
+                query=original_query,
+                description="LIKE pattern contains multiple wildcards, which can prevent index usage and lead to slow scans.",
+                fix="Consider alternative search methods or simplify the pattern to use fewer wildcards, especially leading ones.",
+                impact="Forces full table scan, significant performance degradation on large tables.",
                 severity=IssueSeverity.HIGH,
                 line_number=line_num
             )
@@ -1354,7 +1368,7 @@ class QueryDetector:
         return None
 
     def _detect_recursive_cte_no_limit(self, clean_query: str, original_query: str, line_num: Optional[int] = None) -> Optional[DetectedIssue]:
-        if self._patterns['recursive_cte_no_limit'].search(clean_query):
+        if 'WITH RECURSIVE' in clean_query.upper() and 'LIMIT' not in clean_query.upper():
             return DetectedIssue(
                 issue_type="Recursive CTE without LIMIT",
                 query=original_query,

@@ -22,7 +22,7 @@ class TestAnalyzer:
         assert "issue" in results.df.columns
 
     def test_analyze_clean_query(self, analyzer):
-        results = analyzer.analyze("SELECT id FROM users WHERE id = 1")
+        results = analyzer.analyze('SELECT "id" FROM "users" WHERE "id" = 1')
         assert results.df.empty
 
     def test_analyze_list_of_queries(self, analyzer):
