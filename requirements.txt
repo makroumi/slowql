@@ -10,5 +10,5 @@ pandas>=2.0
 flake8>=6.0.0,<6.1.0
 zipp>=3.19.1
 requests>=2.32.4
-urllib3>=2.5.0,<3
+urllib3>=2.6.0
 
