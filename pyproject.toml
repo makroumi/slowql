@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "slowql"
-dynamic = ["version", "dependencies"]
+dynamic = ["version"]
 description = "Cyberpunk SQL analyzer catching expensive queries before production"
 authors = [{name = "makroumi", email = "elmehdi.makroumi@gmail.com"}]
 license = "Apache-2.0"
@@ -20,6 +20,15 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "rich>=13.0.0",
+    "sqlparse>=0.5.4",
+    "pandas>=2.0",
+    "requests>=2.32.4",
+    "urllib3>=2.5.0,<3",
+    "zipp>=3.19.1"
 ]
 
 [project.optional-dependencies]

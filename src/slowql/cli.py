@@ -312,7 +312,6 @@ def main(argv: Optional[list[str]] = None) -> None:
         workers=args.workers,
     )
 
-
 if __name__ == "__main__":
     main()
 

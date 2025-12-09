@@ -27,3 +27,6 @@ reports/
 *.egg-info/
 __pycache__/
 
+.gemini/
+GEMINI.md
+examples/

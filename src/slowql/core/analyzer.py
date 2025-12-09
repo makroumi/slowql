@@ -158,40 +158,48 @@ class QueryAnalyzer:
 
     def _to_dataframe(self, issues: list[DetectedIssue]) -> pd.DataFrame:
         """
-        Convert issues to DataFrame format.
-
-        Args:
-            issues: List of DetectedIssue objects
-
-        Returns:
-            pandas DataFrame with normalized issue data
+        Convert issues to DataFrame with proper grouping:
+        - Group by (issue_type, description, fix, impact, severity)
+        - Show count
+        - Show one example query (truncated)
+        - Preserve line_number from first occurrence
         """
         if not issues:
             return pd.DataFrame(columns=[
                 "issue", "query", "description", "fix", "impact", "severity", "line_number", "count"
             ])
 
-        data: list[dict[str, Any]] = []
-        issue_groups: dict[tuple[str, str, str], dict[str, Any]] = {}
-
+        # Group by meaningful fields — same problem, same advice → one row
+        groups = {}
         for issue in issues:
-            key: tuple[str, str, str] = (issue.issue_type, issue.fix, issue.impact)
-            if key not in issue_groups:
-                issue_groups[key] = {
+            key = (
+                issue.issue_type,
+                issue.description,
+                issue.fix,
+                issue.impact,
+                issue.severity.value
+            )
+            if key not in groups:
+                groups[key] = {
                     "issue": issue.issue_type,
-                    "queries": [],
                     "description": issue.description,
                     "fix": issue.fix,
                     "impact": issue.impact,
                     "severity": issue.severity.value,
+                    "queries": [],
                     "line_number": issue.line_number
                 }
-            issue_groups[key]["queries"].append(issue.query)
+            groups[key]["queries"].append((issue.query.strip(), issue.line_number or 0))
 
-        for group in issue_groups.values():
-            example_query: str = group["queries"][0]
-            if len(example_query) > 60:
-                example_query = example_query[:57] + "..."
+        data = []
+        for group in groups.values():
+            # Pick the shortest query as example (best for display)
+            example_query, example_line = min(
+                group["queries"],
+                key=lambda x: len(x[0])
+            )
+            if len(example_query) > 80:
+                example_query = example_query[:77] + "..."
 
             data.append({
                 "issue": group["issue"],
@@ -200,11 +208,16 @@ class QueryAnalyzer:
                 "fix": group["fix"],
                 "impact": group["impact"],
                 "severity": group["severity"],
-                "line_number": group["line_number"],
+                "line_number": example_line,
                 "count": len(group["queries"])
             })
 
-        return pd.DataFrame(data)
+        df = pd.DataFrame(data)
+        # Sort by severity then count
+        severity_order = {"critical": 0, "high": 1, "medium": 2, "low": 2}
+        df["severity_rank"] = df["severity"].map(severity_order)
+        df = df.sort_values(["severity_rank", "count"], ascending=[True, False]).drop(columns="severity_rank")
+        return df.reset_index(drop=True)
 
     def _update_stats(self, issues: list[DetectedIssue]) -> None:
         """
