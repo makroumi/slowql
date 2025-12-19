@@ -1,0 +1,3536 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Regulatory Compliance Detectors - SlowQL Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#regulatory-compliance-detectors" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="SlowQL Documentation" class="md-header__button md-logo" aria-label="SlowQL Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            SlowQL Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Regulatory Compliance Detectors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="SlowQL Documentation" class="md-nav__button md-logo" aria-label="SlowQL Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    SlowQL Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/first-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    First Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Examples
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/basic-usage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Basic Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/docker-podman-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker & Podman Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/github-actions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitHub Actions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/gitlab-ci/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GitLab CI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/jenkins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Jenkins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../examples/pre-commit-hook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pre-Commit Hook
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/end-to-end-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    End-to-End Pipeline
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/custom-detector-walkthrough/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Detector Walkthrough
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/team-onboarding-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Onboarding Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/dashboard-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Dashboard Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/parser-engine/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Parser Engine
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/detector-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detector System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/export-system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Export System
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Detectors
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Detectors
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../critical-detectors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Critical
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../high-severity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    High Severity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../medium-severity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Medium Severity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../low-severity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Low Severity
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../custom-detectors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/cli-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CLI Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/ci-cd-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CI/CD Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/file-analysis/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    File Analysis
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/export-formats/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Export Formats
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/interactive-mode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interactive Mode
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Enterprise
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Enterprise
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enterprise/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enterprise/deployment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enterprise/team-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../enterprise/support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Troubleshooting
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/common-issues/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Common Issues
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/performance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Security
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/best-practices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/security-policy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security Policy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../security/vulnerability-reporting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vulnerability Reporting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_11" >
+        
+          
+          <label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_11_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_11">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/setup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Setup
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/testing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/adding-detectors/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Adding Detectors
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/release-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Release Process
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../CHANGELOG/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Changelog
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📋 Overview
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gdpr-compliance-patterns-20-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🇪🇺 GDPR Compliance Patterns (20 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🇪🇺 GDPR Compliance Patterns (20 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-subject-rights-articles-12-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Subject Rights (Articles 12-22)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Subject Rights (Articles 12-22)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-subject-rights-violation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Subject Rights Violation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#access-request-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Request Prevention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rectification-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rectification Prevention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-portability-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Portability Prevention
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consent-and-lawfulness-articles-6-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consent and Lawfulness (Articles 6-7)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Consent and Lawfulness (Articles 6-7)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-consent-tracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing Consent Tracking
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#consent-withdrawal-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Consent Withdrawal Prevention
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#missing-legal-basis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing Legal Basis
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-minimization-and-purpose-article-5" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Minimization and Purpose (Article 5)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Minimization and Purpose (Article 5)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#excessive-data-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excessive Data Collection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#purpose-limitation-violation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Purpose Limitation Violation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lack-of-transparency" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lack of Transparency
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#right-to-erasure-article-17" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Right to Erasure (Article 17)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Right to Erasure (Article 17)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#right-to-erasure-prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Right to Erasure Prevention
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cross-border-transfers-chapter-v" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-border Transfers (Chapter V)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Cross-border Transfers (Chapter V)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#cross-border-transfer-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cross-border Transfer Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#international-transfer-safeguards" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        International Transfer Safeguards
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#profiling-and-automated-decisions-article-22" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Profiling and Automated Decisions (Article 22)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Profiling and Automated Decisions (Article 22)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#automated-profiling-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Automated Profiling Detection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#data-retention-article-51e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Data Retention (Article 5(1)(e))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Retention (Article 5(1)(e))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#excessive-data-retention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excessive Data Retention
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breach-notification-articles-33-34" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breach Notification (Articles 33-34)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Breach Notification (Articles 33-34)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#breach-notification-requirements" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breach Notification Requirements
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#high-risk-processing-article-35" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High-risk Processing (Article 35)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High-risk Processing (Article 35)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dpia-requirement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DPIA Requirement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accountability-article-52" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accountability (Article 5(2))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Accountability (Article 5(2))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#accountability-principle" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Accountability Principle
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supervisory-authority-cooperation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Supervisory Authority Cooperation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hipaa-compliance-patterns-10-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏥 HIPAA Compliance Patterns (10 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏥 HIPAA Compliance Patterns (10 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#access-controls-45-cfr-164308a4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Access Controls (45 CFR §164.308(a)(4))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Access Controls (45 CFR §164.308(a)(4))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insufficient-phi-access-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insufficient PHI Access Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#audit-controls-45-cfr-164312b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Controls (45 CFR §164.312(b))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Audit Controls (45 CFR §164.312(b))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-phi-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing PHI Audit Trail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrity-45-cfr-164312c1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrity (45 CFR §164.312(c)(1))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Integrity (45 CFR §164.312(c)(1))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#phi-data-integrity-risk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PHI Data Integrity Risk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authentication-45-cfr-164312d" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authentication (45 CFR §164.312(d))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Authentication (45 CFR §164.312(d))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insufficient-phi-authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insufficient PHI Authentication
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimum-necessary-45-cfr-164502b" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum Necessary (45 CFR §164.502(b))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Minimum Necessary (45 CFR §164.502(b))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#minimum-necessary-phi-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Minimum Necessary PHI Access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transmission-security-45-cfr-164312e1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transmission Security (45 CFR §164.312(e)(1))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Transmission Security (45 CFR §164.312(e)(1))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unencrypted-phi-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unencrypted PHI Transmission
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disposal-45-cfr-164310d2i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Disposal (45 CFR §164.310(d)(2)(i))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Disposal (45 CFR §164.310(d)(2)(i))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#improper-phi-disposal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Improper PHI Disposal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#breach-notification-45-cfr-164404-408" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Breach Notification (45 CFR §164.404-408)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Breach Notification (45 CFR §164.404-408)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hipaa-breach-notification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIPAA Breach Notification
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#business-associates-45-cfr-164502e" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Business Associates (45 CFR §164.502(e))
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Business Associates (45 CFR §164.502(e))">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#business-associate-agreement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Business Associate Agreement
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#patient-rights-45-cfr-164524-164526" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patient Rights (45 CFR §164.524, 164.526)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Patient Rights (45 CFR §164.524, 164.526)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#patient-rights-violation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Patient Rights Violation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pci-dss-compliance-patterns-5-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        💳 PCI-DSS Compliance Patterns (5 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💳 PCI-DSS Compliance Patterns (5 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protect-stored-cardholder-data-requirement-3" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protect Stored Cardholder Data (Requirement 3)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protect Stored Cardholder Data (Requirement 3)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insufficient-cardholder-data-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insufficient Cardholder Data Protection
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encrypt-transmission-requirement-4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encrypt Transmission (Requirement 4)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Encrypt Transmission (Requirement 4)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#unencrypted-cardholder-data-transmission" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unencrypted Cardholder Data Transmission
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#restrict-access-requirement-7" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Restrict Access (Requirement 7)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Restrict Access (Requirement 7)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#insufficient-cardholder-data-access-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Insufficient Cardholder Data Access Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track-and-monitor-requirement-10" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Track and Monitor (Requirement 10)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Track and Monitor (Requirement 10)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#missing-cardholder-data-audit-trail" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Missing Cardholder Data Audit Trail
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#protect-data-retention-requirement-31" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protect Data Retention (Requirement 3.1)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Protect Data Retention (Requirement 3.1)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#excessive-cardholder-data-retention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Excessive Cardholder Data Retention
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compliance-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛡️ Compliance Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Compliance Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-data-classification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Data Classification
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-access-controls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Access Controls
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-audit-and-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Audit and Monitoring
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-data-protection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Data Protection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-incident-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Incident Response
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Performance Impact
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#related-documentation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔗 Related Documentation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#regulatory-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Regulatory References
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📚 Regulatory References">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gdpr-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GDPR Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hipaa-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HIPAA Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pci-dss-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PCI-DSS Resources
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="regulatory-compliance-detectors">Regulatory Compliance Detectors</h1>
+<p>SlowQL provides comprehensive regulatory compliance detection for GDPR, HIPAA, and PCI-DSS requirements. This guide covers all 41 compliance patterns implemented in Sprint 1.</p>
+<hr />
+<h2 id="overview">📋 Overview</h2>
+<p>Regulatory compliance is critical for organizations handling sensitive data. SlowQL's Compliance Detector Suite provides:</p>
+<ul>
+<li><strong>41 comprehensive compliance patterns</strong> covering GDPR, HIPAA, and PCI-DSS requirements</li>
+<li><strong>GDPR Data Protection</strong> (20 patterns) - EU data protection and privacy rights</li>
+<li><strong>HIPAA Healthcare</strong> (10 patterns) - Protected Health Information security</li>
+<li><strong>PCI-DSS Payment</strong> (5 patterns) - Credit card and payment data protection</li>
+<li><strong>Real-world compliance scenarios</strong> based on regulatory requirements</li>
+<li><strong>Audit-ready reporting</strong> with regulatory references and remediation guidance</li>
+</ul>
+<hr />
+<h2 id="gdpr-compliance-patterns-20-patterns">🇪🇺 GDPR Compliance Patterns (20 patterns)</h2>
+<p>The General Data Protection Regulation (GDPR) requires strict controls over personal data processing. These detectors identify potential violations.</p>
+<h3 id="data-subject-rights-articles-12-22">Data Subject Rights (Articles 12-22)</h3>
+<h4 id="data-subject-rights-violation">Data Subject Rights Violation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+UPDATE user_account WHERE id=123 WITHOUT user_consent
+DELETE FROM profile WHERE user_id=456 WITHOUT data_subject_request
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-002</code> - Data Subject Rights Violation
+<strong>Impact</strong>: Violates GDPR Articles 16-17 (rectification and erasure)
+<strong>Fix</strong>: Implement proper data subject request procedures</p>
+<h4 id="access-request-prevention">Access Request Prevention</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT personal_data FROM users WHERE export=false
+SELECT user_info FROM accounts WHERE access_request=restricted
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-015</code> - Data Access Request Prevention
+<strong>Impact</strong>: Violates GDPR Article 15 (right of access)
+<strong>Fix</strong>: Implement comprehensive data discovery and export mechanisms</p>
+<h4 id="rectification-prevention">Rectification Prevention</h4>
+<pre><code class="language-sql">-- Detected patterns:
+UPDATE personal_info SET name='fixed' WHERE immutable=true
+SELECT * FROM user_data WHERE read_only=true
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-014</code> - Data Rectification Prevention
+<strong>Impact</strong>: Violates GDPR Article 16 (right to rectification)
+<strong>Fix</strong>: Implement data rectification mechanisms with audit trails</p>
+<h4 id="data-portability-prevention">Data Portability Prevention</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT user_data FROM database WHERE export=restricted
+SELECT personal_info FROM users WHERE download=blocked
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-013</code> - Data Portability Prevention
+<strong>Impact</strong>: Violates GDPR Article 20 (right to data portability)
+<strong>Fix</strong>: Implement data export in structured formats (CSV, JSON)</p>
+<h3 id="consent-and-lawfulness-articles-6-7">Consent and Lawfulness (Articles 6-7)</h3>
+<h4 id="missing-consent-tracking">Missing Consent Tracking</h4>
+<pre><code class="language-sql">-- Detected patterns:
+PROCESS personal_data WITHOUT consent_tracking
+COLLECT user_information missing consent mechanisms
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-003</code> - Missing Consent Tracking
+<strong>Impact</strong>: Violates GDPR Article 7 (conditions for consent)
+<strong>Fix</strong>: Implement consent tracking with timestamps and withdrawal mechanisms</p>
+<h4 id="consent-withdrawal-prevention">Consent Withdrawal Prevention</h4>
+<pre><code class="language-sql">-- Detected patterns:
+UPDATE user_account WHERE consent=true WITHOUT option_to_withdraw
+DELETE FROM preferences WHERE user_consent=false
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-009</code> - Consent Withdrawal Prevention
+<strong>Impact</strong>: Violates GDPR Article 7(3) (withdrawal of consent)
+<strong>Fix</strong>: Implement easy-to-use consent withdrawal mechanisms</p>
+<h4 id="missing-legal-basis">Missing Legal Basis</h4>
+<pre><code class="language-sql">-- Detected patterns:
+PROCESS personal_data WITHOUT legal_basis
+ANALYZE user_information unclear purpose
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-011</code> - Missing Legal Basis
+<strong>Impact</strong>: Violates GDPR Article 6 (lawfulness of processing)
+<strong>Fix</strong>: Document legal basis (consent, contract, legal obligation, etc.)</p>
+<h3 id="data-minimization-and-purpose-article-5">Data Minimization and Purpose (Article 5)</h3>
+<h4 id="excessive-data-collection">Excessive Data Collection</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT ALL personal_data FROM users
+SELECT * FROM customer_information unnecessary_fields
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-004</code> - Excessive Data Collection
+<strong>Impact</strong>: Violates GDPR Article 5(1)(c) (data minimization)
+<strong>Fix</strong>: Collect only necessary data for stated purposes</p>
+<h4 id="purpose-limitation-violation">Purpose Limitation Violation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+USE marketing_data originally_collected_for service_provision
+PROCESS advertising_information beyond original purpose
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-010</code> - Purpose Limitation Violation
+<strong>Impact</strong>: Violates GDPR Article 5(1)(b) (purpose limitation)
+<strong>Fix</strong>: Obtain additional consent for secondary uses</p>
+<h4 id="lack-of-transparency">Lack of Transparency</h4>
+<pre><code class="language-sql">-- Detected patterns:
+PROCESS user_data INVISIBLE algorithm logic
+ANALYZE personal_information UNDOCUMENTED purpose
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-012</code> - Data Processing Transparency
+<strong>Impact</strong>: Violates GDPR Articles 13-14 (information to be provided)
+<strong>Fix</strong>: Provide clear information about processing purposes and logic</p>
+<h3 id="right-to-erasure-article-17">Right to Erasure (Article 17)</h3>
+<h4 id="right-to-erasure-prevention">Right to Erasure Prevention</h4>
+<pre><code class="language-sql">-- Detected patterns:
+CREATE TABLE user_data FOREIGN KEY REFERENCES user_account ON DELETE RESTRICT
+ALTER TABLE personal_info CONSTRAINT references user_data ON DELETE CASCADE
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-005</code> - Right to Erasure Prevention
+<strong>Impact</strong>: Violates GDPR Article 17 (right to be forgotten)
+<strong>Fix</strong>: Implement cascading deletes or soft deletes with audit trails</p>
+<h3 id="cross-border-transfers-chapter-v">Cross-border Transfers (Chapter V)</h3>
+<h4 id="cross-border-transfer-risk">Cross-border Transfer Risk</h4>
+<pre><code class="language-sql">-- Detected patterns:
+CONNECT server US database eu_to_usa_data
+SELECT data FROM host CANADA without safeguards
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-006</code> - Cross-Border Transfer Risk
+<strong>Impact</strong>: Violates GDPR Chapter V (transfers to third countries)
+<strong>Fix</strong>: Implement Standard Contractual Clauses (SCCs)</p>
+<h4 id="international-transfer-safeguards">International Transfer Safeguards</h4>
+<pre><code class="language-sql">-- Detected patterns:
+TRANSFER personal_data OUTSIDE EU without_safeguards
+STORE user_information THIRD_COUNTRY no adequacy decision
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-019</code> - International Transfer Safeguards
+<strong>Impact</strong>: Violates GDPR Chapter V (transfers to third countries)
+<strong>Fix</strong>: Implement approved transfer mechanisms or adequacy decisions</p>
+<h3 id="profiling-and-automated-decisions-article-22">Profiling and Automated Decisions (Article 22)</h3>
+<h4 id="automated-profiling-detection">Automated Profiling Detection</h4>
+<pre><code class="language-sql">-- Detected patterns:
+IMPLEMENT automated decision user CLASSIFICATION without safeguards
+USE algorithm MACHINE_LEARNING scoring customer profile
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-007</code> - Automated Profiling Detection
+<strong>Impact</strong>: Violates GDPR Article 22 (automated decision-making)
+<strong>Fix</strong>: Implement human review mechanisms and provide explanations</p>
+<h3 id="data-retention-article-51e">Data Retention (Article 5(1)(e))</h3>
+<h4 id="excessive-data-retention">Excessive Data Retention</h4>
+<pre><code class="language-sql">-- Detected patterns:
+RETAIN personal_data INDEFINITELY
+KEEP user_information FOREVER permanent storage
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-008</code> - Excessive Data Retention
+<strong>Impact</strong>: Violates GDPR Article 5(1)(e) (storage limitation)
+<strong>Fix</strong>: Implement data retention policies with automatic deletion</p>
+<h3 id="breach-notification-articles-33-34">Breach Notification (Articles 33-34)</h3>
+<h4 id="breach-notification-requirements">Breach Notification Requirements</h4>
+<pre><code class="language-sql">-- Detected patterns:
+UNAUTHORIZED access personal_data unusual activity
+SUSPICIOUS export sensitive_information without proper logging
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-016</code> - Breach Notification Requirements
+<strong>Impact</strong>: Violates GDPR Articles 33-34 (breach notification)
+<strong>Fix</strong>: Implement breach detection and notification within 72 hours</p>
+<h3 id="high-risk-processing-article-35">High-risk Processing (Article 35)</h3>
+<h4 id="dpia-requirement">DPIA Requirement</h4>
+<pre><code class="language-sql">-- Detected patterns:
+LARGE_SCALE systematic MONITORING special categories data
+AUTOMATED processing SENSITIVE information high risk
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-017</code> - DPIA Requirement
+<strong>Impact</strong>: Violates GDPR Article 35 (data protection impact assessment)
+<strong>Fix</strong>: Conduct DPIA before high-risk processing activities</p>
+<h3 id="accountability-article-52">Accountability (Article 5(2))</h3>
+<h4 id="accountability-principle">Accountability Principle</h4>
+<pre><code class="language-sql">-- Detected patterns:
+PROCESS personal_data WITHOUT audit_trail
+HANDLE user_information missing documentation compliance_check
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-020</code> - Accountability Principle
+<strong>Impact</strong>: Violates GDPR Article 5(2) (accountability principle)
+<strong>Fix</strong>: Implement comprehensive audit trails and compliance monitoring</p>
+<h4 id="supervisory-authority-cooperation">Supervisory Authority Cooperation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+DENY supervisory_authority access audit investigation
+REFUSE regulatory compliance request
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-GDPR-018</code> - Supervisory Authority Cooperation
+<strong>Impact</strong>: Violates GDPR Article 31 (cooperation with authorities)
+<strong>Fix</strong>: Establish procedures for responding to authority requests</p>
+<hr />
+<h2 id="hipaa-compliance-patterns-10-patterns">🏥 HIPAA Compliance Patterns (10 patterns)</h2>
+<p>The Health Insurance Portability and Accountability Act (HIPAA) protects Protected Health Information (PHI). These detectors identify potential violations.</p>
+<h3 id="access-controls-45-cfr-164308a4">Access Controls (45 CFR §164.308(a)(4))</h3>
+<h4 id="insufficient-phi-access-controls">Insufficient PHI Access Controls</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT patient_medical_data WHERE role!=physician
+UPDATE health_record WHERE access_check=no validation
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-001</code> - Insufficient PHI Access Controls
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.308(a)(4) (access control)
+<strong>Fix</strong>: Implement role-based access controls (RBAC) with proper authorization</p>
+<h3 id="audit-controls-45-cfr-164312b">Audit Controls (45 CFR §164.312(b))</h3>
+<h4 id="missing-phi-audit-trail">Missing PHI Audit Trail</h4>
+<pre><code class="language-sql">-- Detected patterns:
+ACCESS patient_information without_log
+QUERY medical_data unlogged activity
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-002</code> - Missing PHI Audit Trail
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.312(b) (audit controls)
+<strong>Fix</strong>: Implement comprehensive audit logging for all PHI access</p>
+<h3 id="integrity-45-cfr-164312c1">Integrity (45 CFR §164.312(c)(1))</h3>
+<h4 id="phi-data-integrity-risk">PHI Data Integrity Risk</h4>
+<pre><code class="language-sql">-- Detected patterns:
+UPDATE medical_record without_backup
+DELETE patient_data direct_table_access no integrity_check
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-003</code> - PHI Data Integrity Risk
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.312(c)(1) (integrity)
+<strong>Fix</strong>: Implement data integrity controls including backups and checksums</p>
+<h3 id="authentication-45-cfr-164312d">Authentication (45 CFR §164.312(d))</h3>
+<h4 id="insufficient-phi-authentication">Insufficient PHI Authentication</h4>
+<pre><code class="language-sql">-- Detected patterns:
+CONNECT patient_database without_auth
+LOGIN medical_system shared_credentials no password
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-004</code> - Insufficient PHI Authentication
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.312(d) (person or entity authentication)
+<strong>Fix</strong>: Implement strong authentication including multi-factor authentication</p>
+<h3 id="minimum-necessary-45-cfr-164502b">Minimum Necessary (45 CFR §164.502(b))</h3>
+<h4 id="minimum-necessary-phi-access">Minimum Necessary PHI Access</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * patient_record WHERE need!=justified
+ACCESS entire medical_chart unnecessary information
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-005</code> - Minimum Necessary PHI Access
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.502(b) (minimum necessary)
+<strong>Fix</strong>: Limit PHI access to minimum necessary for intended purpose</p>
+<h3 id="transmission-security-45-cfr-164312e1">Transmission Security (45 CFR §164.312(e)(1))</h3>
+<h4 id="unencrypted-phi-transmission">Unencrypted PHI Transmission</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SEND patient_data via HTTP unsecured
+TRANSMIT medical_information plaintext unencrypted
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-006</code> - Unencrypted PHI Transmission
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.312(e)(1) (transmission security)
+<strong>Fix</strong>: Implement TLS/SSL encryption for all PHI transmission</p>
+<h3 id="disposal-45-cfr-164310d2i">Disposal (45 CFR §164.310(d)(2)(i))</h3>
+<h4 id="improper-phi-disposal">Improper PHI Disposal</h4>
+<pre><code class="language-sql">-- Detected patterns:
+DELETE patient_data without_secure_deletion
+DISPOSE medical_record no destruction_proof
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-007</code> - Improper PHI Disposal
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.310(d)(2)(i) (disposal)
+<strong>Fix</strong>: Implement secure disposal procedures with proper destruction methods</p>
+<h3 id="breach-notification-45-cfr-164404-408">Breach Notification (45 CFR §164.404-408)</h3>
+<h4 id="hipaa-breach-notification">HIPAA Breach Notification</h4>
+<pre><code class="language-sql">-- Detected patterns:
+UNAUTHORIZED access patient_information suspicious activity
+BREACH medical_data unusual export PHI
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-008</code> - HIPAA Breach Notification
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.404-408 (breach notification)
+<strong>Fix</strong>: Implement breach detection, assessment, and notification procedures</p>
+<h3 id="business-associates-45-cfr-164502e">Business Associates (45 CFR §164.502(e))</h3>
+<h4 id="business-associate-agreement">Business Associate Agreement</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SHARE patient_data with_third_party without_baa
+PROVIDE medical_information to_vendor no agreement
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-009</code> - Business Associate Agreement
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.502(e) (business associate agreements)
+<strong>Fix</strong>: Ensure all vendors handling PHI have signed BAAs</p>
+<h3 id="patient-rights-45-cfr-164524-164526">Patient Rights (45 CFR §164.524, 164.526)</h3>
+<h4 id="patient-rights-violation">Patient Rights Violation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+DENY patient access medical_record
+REFUSE individual amend PHI request
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-HIPAA-010</code> - Patient Rights Violation
+<strong>Impact</strong>: Violates HIPAA 45 CFR §164.524 (access to PHI) and §164.526 (amendment)
+<strong>Fix</strong>: Implement patient access and amendment procedures</p>
+<hr />
+<h2 id="pci-dss-compliance-patterns-5-patterns">💳 PCI-DSS Compliance Patterns (5 patterns)</h2>
+<p>The Payment Card Industry Data Security Standard (PCI-DSS) protects cardholder data. These detectors identify potential violations.</p>
+<h3 id="protect-stored-cardholder-data-requirement-3">Protect Stored Cardholder Data (Requirement 3)</h3>
+<h4 id="insufficient-cardholder-data-protection">Insufficient Cardholder Data Protection</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT credit_card_number unencrypted FROM transactions
+STORE payment_information plaintext CVV
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-PCI-001</code> - Insufficient Cardholder Data Protection
+<strong>Impact</strong>: Violates PCI DSS Requirement 3 (protect stored cardholder data)
+<strong>Fix</strong>: Implement strong encryption for all cardholder data storage</p>
+<h3 id="encrypt-transmission-requirement-4">Encrypt Transmission (Requirement 4)</h3>
+<h4 id="unencrypted-cardholder-data-transmission">Unencrypted Cardholder Data Transmission</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SEND payment_data via HTTP unsecured
+TRANSMIT credit_card_information plaintext
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-PCI-002</code> - Unencrypted Cardholder Data Transmission
+<strong>Impact</strong>: Violates PCI DSS Requirement 4 (encrypt transmission)
+<strong>Fix</strong>: Implement TLS/SSL encryption for all transmissions</p>
+<h3 id="restrict-access-requirement-7">Restrict Access (Requirement 7)</h3>
+<h4 id="insufficient-cardholder-data-access-controls">Insufficient Cardholder Data Access Controls</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT payment_transaction WHERE role!=authorized
+ACCESS cardholder_data no_access_control
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-PCI-003</code> - Insufficient Cardholder Data Access Controls
+<strong>Impact</strong>: Violates PCI DSS Requirement 7 (restrict access)
+<strong>Fix</strong>: Implement role-based access controls and limit access to necessary personnel</p>
+<h3 id="track-and-monitor-requirement-10">Track and Monitor (Requirement 10)</h3>
+<h4 id="missing-cardholder-data-audit-trail">Missing Cardholder Data Audit Trail</h4>
+<pre><code class="language-sql">-- Detected patterns:
+ACCESS payment_data without_log
+QUERY cardholder_information no_audit_trail
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-PCI-004</code> - Missing Cardholder Data Audit Trail
+<strong>Impact</strong>: Violates PCI DSS Requirement 10 (track and monitor access)
+<strong>Fix</strong>: Implement comprehensive audit logging for all cardholder data access</p>
+<h3 id="protect-data-retention-requirement-31">Protect Data Retention (Requirement 3.1)</h3>
+<h4 id="excessive-cardholder-data-retention">Excessive Cardholder Data Retention</h4>
+<pre><code class="language-sql">-- Detected patterns:
+RETAIN payment_data INDEFINITELY
+STORE credit_card_information forever excessive retention
+</code></pre>
+<p><strong>Rule</strong>: <code>COMP-PCI-005</code> - Excessive Cardholder Data Retention
+<strong>Impact</strong>: Violates PCI DSS Requirement 3 (protect stored data)
+<strong>Fix</strong>: Implement data retention policies and purge when no longer needed</p>
+<hr />
+<h2 id="compliance-best-practices">🛡️ Compliance Best Practices</h2>
+<h3 id="1-data-classification">1. Data Classification</h3>
+<ul>
+<li>Classify data by sensitivity level</li>
+<li>Implement appropriate controls based on classification</li>
+<li>Regular data inventory and mapping</li>
+</ul>
+<h3 id="2-access-controls">2. Access Controls</h3>
+<ul>
+<li>Principle of least privilege</li>
+<li>Role-based access control (RBAC)</li>
+<li>Regular access reviews and updates</li>
+</ul>
+<h3 id="3-audit-and-monitoring">3. Audit and Monitoring</h3>
+<ul>
+<li>Comprehensive audit logging</li>
+<li>Real-time monitoring and alerting</li>
+<li>Regular compliance assessments</li>
+</ul>
+<h3 id="4-data-protection">4. Data Protection</h3>
+<ul>
+<li>Encryption at rest and in transit</li>
+<li>Secure data disposal procedures</li>
+<li>Data minimization practices</li>
+</ul>
+<h3 id="5-incident-response">5. Incident Response</h3>
+<ul>
+<li>Breach detection and response procedures</li>
+<li>Regulatory notification processes</li>
+<li>Documentation and reporting</li>
+</ul>
+<hr />
+<h2 id="performance-impact">📊 Performance Impact</h2>
+<p>The Compliance Detector Suite is optimized for enterprise use:</p>
+<ul>
+<li><strong>Minimal performance impact</strong> with efficient pattern matching</li>
+<li><strong>Batch processing support</strong> for large-scale compliance checks</li>
+<li><strong>Configurable severity levels</strong> for different compliance requirements</li>
+<li><strong>Integration with CI/CD pipelines</strong> for continuous compliance monitoring</li>
+</ul>
+<hr />
+<h2 id="related-documentation">🔗 Related Documentation</h2>
+<ul>
+<li><a href="../owasp-security/">OWASP Security Detectors</a> - SQL injection and security patterns</li>
+<li><a href="../critical-detectors/">Critical Detectors</a> - Immediate security and data risks</li>
+<li><a href="../../getting-started/configuration/">Performance Configuration</a> - Rule customization</li>
+<li><a href="../../enterprise/deployment/">Enterprise Deployment</a> - Compliance in production</li>
+</ul>
+<hr />
+<h2 id="regulatory-references">📚 Regulatory References</h2>
+<h3 id="gdpr-resources">GDPR Resources</h3>
+<ul>
+<li><a href="https://gdpr.eu/">GDPR Official Text</a></li>
+<li><a href="https://gdpr.eu/checklist/">GDPR Compliance Guide</a></li>
+<li><a href="https://gdpr.eu/data-protection-impact-assessment-template/">Data Protection Impact Assessment</a></li>
+</ul>
+<h3 id="hipaa-resources">HIPAA Resources</h3>
+<ul>
+<li><a href="https://www.hhs.gov/hipaa/for-professionals/security/index.html">HIPAA Security Rule</a></li>
+<li><a href="https://www.hhs.gov/hipaa/for-professionals/compliance-enforcement/agreements/BAA.html">HIPAA Compliance Checklist</a></li>
+<li><a href="https://www.hhs.gov/hipaa/for-professionals/breach-notification/index.html">Breach Notification Rule</a></li>
+</ul>
+<h3 id="pci-dss-resources">PCI-DSS Resources</h3>
+<ul>
+<li><a href="https://www.pcisecuritystandards.org/">PCI Security Standards Council</a></li>
+<li><a href="https://www.pcisecuritystandards.org/documents/">PCI DSS Documentation</a></li>
+<li><a href="https://www.pcisecuritystandards.org/documents/PCI_DSS_v3-2-1.pdf">PCI DSS Quick Reference Guide</a></li>
+</ul>
+<hr />
+<p><em>Last Updated: Sprint 1 (2025-12-19)</em>
+<em>Compliance Coverage: GDPR + HIPAA + PCI-DSS</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../overview/">
-      
-      
-        <link rel="next" href="../high-severity/">
       
       
         
@@ -23,7 +19,7 @@
     
     
       
-        <title>Critical - SlowQL Documentation</title>
+        <title>OWASP SQL Injection Security Patterns - SlowQL Documentation</title>
       
     
     
@@ -64,7 +60,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#critical-detectors" class="md-skip">
+        <a href="#owasp-sql-injection-security-patterns" class="md-skip">
           Skip to content
         </a>
       
@@ -100,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Critical
+              OWASP SQL Injection Security Patterns
             
           </span>
         </div>
@@ -940,20 +936,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
           <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
@@ -974,7 +968,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1017,37 +1011,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Critical
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../critical-detectors/" class="md-nav__link">
         
   
   
@@ -1063,81 +1030,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#sql-injection-risk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🚨 SQL Injection Risk
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unbounded-delete-or-update" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🧨 Unbounded DELETE or UPDATE
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#unsafe-dynamic-sql" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔓 Unsafe Dynamic SQL
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🧠 Why It Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔗 Related Pages
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2173,10 +2065,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#sql-injection-risk" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚨 SQL Injection Risk
+        🔒 Overview
       
     </span>
   </a>
@@ -2184,10 +2076,581 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unbounded-delete-or-update" class="md-nav__link">
+  <a href="#attack-vector-categories" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧨 Unbounded DELETE or UPDATE
+        🎯 Attack Vector Categories
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Attack Vector Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-boolean-based-blind-sql-injection-11-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Boolean-based Blind SQL Injection (11 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Boolean-based Blind SQL Injection (11 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#and-11-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AND 1=1 Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#or-11-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        OR 1=1 Patterns
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#substring-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Substring Extraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asciichar-comparison" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASCII/CHAR Comparison
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#length-based-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Length-based Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exists-function-exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EXISTS Function Exploitation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-statement-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CASE Statement Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#in-function-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IN Function Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#between-range-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BETWEEN Range Testing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-based-boolean-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Time-based Boolean Attacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-union-based-sql-injection-5-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Union-based SQL Injection (5 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Union-based SQL Injection (5 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-union-select" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic UNION SELECT
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#union-all-complete-extraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        UNION ALL Complete Extraction
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#system-table-targeting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        System Table Targeting
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#null-based-column-enumeration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NULL-based Column Enumeration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multiple-union-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple UNION Operations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-time-based-blind-sql-injection-5-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Time-based Blind SQL Injection (5 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Time-based Blind SQL Injection (5 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sleep-function-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SLEEP Function Attacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#benchmark-cpu-intensive-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        BENCHMARK CPU-intensive Attacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-pg_sleep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL pg_sleep
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sql-server-waitfor-delay" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQL Server WAITFOR DELAY
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#heavy-query-timing-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Heavy Query Timing Attacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-error-based-sql-injection-5-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Error-based SQL Injection (5 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Error-based SQL Injection (5 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#convert-function-exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CONVERT Function Exploitation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cast-function-attacks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CAST Function Attacks
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql-updatexml-exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL UPDATEXML Exploitation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql-extractvalue-exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MySQL EXTRACTVALUE Exploitation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#division-by-zero-errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Division by Zero Errors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-second-order-sql-injection-3-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Second-order SQL Injection (3 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Second-order SQL Injection (3 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#stored-procedure-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Stored Procedure Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-and-procedure-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger and Procedure Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#malicious-view-creation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Malicious View Creation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6-nosql-injection-2-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. NoSQL Injection (2 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. NoSQL Injection (2 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mongodb-javascript-injection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        MongoDB JavaScript Injection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nosql-operator-manipulation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NoSQL Operator Manipulation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-advanced-evasion-techniques-4-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Advanced Evasion Techniques (4 patterns)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Advanced Evasion Techniques (4 patterns)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#combined-attack-vectors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Combined Attack Vectors
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comment-based-evasion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comment-based Evasion
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encoding-and-obfuscation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encoding and Obfuscation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-specific-function-exploitation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database-specific Function Exploitation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protection-recommendations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛡️ Protection Recommendations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛡️ Protection Recommendations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-parameterized-queries-primary-defense" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Parameterized Queries (Primary Defense)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-input-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Input Validation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-least-privilege" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Least Privilege
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-error-handling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Error Handling
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-impact" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Performance Impact
       
     </span>
   </a>
@@ -2195,10 +2658,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#unsafe-dynamic-sql" class="md-nav__link">
+  <a href="#related-documentation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🔓 Unsafe Dynamic SQL
+        🔗 Related Documentation
       
     </span>
   </a>
@@ -2206,21 +2669,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#why-it-matters" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🧠 Why It Matters
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#related-pages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        🔗 Related Pages
+        📚 References
       
     </span>
   </a>
@@ -2244,49 +2696,302 @@
 
 
 
-<h1 id="critical-detectors">Critical Detectors</h1>
-<p>Critical detectors identify SQL patterns that pose severe performance or security risks. These issues should be addressed immediately before deploying to production.</p>
+<h1 id="owasp-sql-injection-security-patterns">OWASP SQL Injection Security Patterns</h1>
+<p>SlowQL provides comprehensive SQL injection detection based on OWASP Top 10 vulnerabilities and industry best practices. This guide covers all 35 SQL injection patterns implemented in Sprint 1.</p>
 <hr />
-<h2 id="sql-injection-risk">🚨 SQL Injection Risk</h2>
-<p>Detects unsafe string concatenation that could allow user input to alter query logic.</p>
-<pre><code class="language-Bash">SELECT * FROM users WHERE email = '&quot; + userInput + &quot;';
-</code></pre>
-<p><strong>Rule</strong>: <code>SEC-INJ-001</code> - Potential SQL Injection
-<strong>Suggestion</strong>: Use parameterized queries or prepared statements.</p>
-<p><strong>Sprint 1 Enhancement</strong>: 35 new OWASP SQLi patterns added covering:
-- Boolean-based blind SQL injection (AND 1=1, OR 1=1)
-- Union-based attacks (UNION SELECT, system table targeting)
-- Time-based attacks (SLEEP, BENCHMARK, pg_sleep)
-- Error-based attacks (CONVERT, CAST, XML functions)
-- Second-order SQL injection (stored procedures, triggers)
-- NoSQL injection (MongoDB, operator manipulation)
-- Advanced evasion (comment bypass, encoding obfuscation)</p>
-<p>See <a href="../owasp-security/">OWASP SQL Injection Patterns</a> for comprehensive coverage.</p>
-<hr />
-<h2 id="unbounded-delete-or-update">🧨 Unbounded DELETE or UPDATE</h2>
-<p>Flags destructive queries that affect entire tables without a WHERE clause.</p>
-<pre><code class="language-Bash">DELETE FROM orders;
-</code></pre>
-<p><strong>Suggestion</strong>: Always include a WHERE clause to scope the operation.</p>
-<hr />
-<h2 id="unsafe-dynamic-sql">🔓 Unsafe Dynamic SQL</h2>
-<p>Detects use of EXEC or dynamic SQL construction without sanitization.</p>
-<pre><code class="language-Bash">EXEC('SELECT * FROM ' + tableName);
-</code></pre>
-<p><strong>Suggestion</strong>: Validate and sanitize all dynamic inputs.</p>
-<hr />
-<h2 id="why-it-matters">🧠 Why It Matters</h2>
-<p>Critical issues can:
-- Expose sensitive data
-- Corrupt or delete entire datasets
-- Open attack surfaces for SQL injection
-- Cause major outages under load</p>
-<hr />
-<h2 id="related-pages">🔗 Related Pages</h2>
+<h2 id="overview">🔒 Overview</h2>
+<p>SQL injection remains one of the most critical web application security risks. SlowQL's OWASP Security Detector Suite provides:</p>
 <ul>
-<li><a href="../high-severity/">High Severity Detectors</a>  </li>
-<li><a href="../overview/">Overview</a>  </li>
+<li><strong>35 comprehensive detection patterns</strong> covering all major SQL injection techniques</li>
+<li><strong>Multi-vector coverage</strong> including boolean-based, union-based, time-based, and error-based attacks</li>
+<li><strong>NoSQL injection support</strong> for MongoDB and other document databases</li>
+<li><strong>Advanced evasion detection</strong> including comment-based and encoding obfuscation</li>
+<li><strong>Real-world attack patterns</strong> based on current threat intelligence</li>
 </ul>
+<hr />
+<h2 id="attack-vector-categories">🎯 Attack Vector Categories</h2>
+<h3 id="1-boolean-based-blind-sql-injection-11-patterns">1. Boolean-based Blind SQL Injection (11 patterns)</h3>
+<p>Detects inference-based attacks where attackers extract information through boolean logic.</p>
+<h4 id="and-11-patterns">AND 1=1 Patterns</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id = 1 AND 1=1
+SELECT * FROM products WHERE name LIKE '%test%' AND 1=1
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-002</code> - Boolean-based Blind SQLi (AND)</p>
+<h4 id="or-11-patterns">OR 1=1 Patterns</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id = 1 OR 1=1
+SELECT * FROM products WHERE active = 1 OR 1=1
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-003</code> - Boolean-based Blind SQLi (OR)</p>
+<h4 id="substring-extraction">Substring Extraction</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE SUBSTRING(password,1,1)='a'
+SELECT * FROM accounts WHERE MID(username,1,1)='admin'
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-004</code> - Boolean-based Blind SQLi (Substring)</p>
+<h4 id="asciichar-comparison">ASCII/CHAR Comparison</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE ASCII(SUBSTRING(password,1,1))&gt;64
+SELECT * FROM data WHERE CHAR(65)=SUBSTRING(name,1,1)
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-005</code> - Boolean-based Blind SQLi (ASCII)</p>
+<h4 id="length-based-enumeration">Length-based Enumeration</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE LENGTH(password)&gt;5
+SELECT * FROM data WHERE LENGTH(username)=8
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-006</code> - Boolean-based Blind SQLi (LENGTH)</p>
+<h4 id="exists-function-exploitation">EXISTS Function Exploitation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE EXISTS(SELECT 1 FROM admin WHERE id=1)
+SELECT * FROM products WHERE EXISTS(SELECT * FROM hidden WHERE secret=1)
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-007</code> - Boolean-based Blind SQLi (EXISTS)</p>
+<h4 id="case-statement-logic">CASE Statement Logic</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE CASE WHEN 1=1 THEN 1 ELSE 0 END=1
+SELECT * FROM data WHERE CASE WHEN SUBSTRING(pwd,1,1)='a' THEN 1 ELSE 0 END=1
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-008</code> - Boolean-based Blind SQLi (CASE)</p>
+<h4 id="in-function-enumeration">IN Function Enumeration</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id IN ('1','2','admin')
+SELECT * FROM data WHERE name IN ('test','admin','user')
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-009</code> - Boolean-based Blind SQLi (IN)</p>
+<h4 id="between-range-testing">BETWEEN Range Testing</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id BETWEEN 1 AND 100
+SELECT * FROM data WHERE LENGTH(name) BETWEEN 1 AND 20
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-010</code> - Boolean-based Blind SQLi (BETWEEN)</p>
+<h4 id="time-based-boolean-attacks">Time-based Boolean Attacks</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=1 AND SLEEP(5)
+SELECT * FROM products WHERE active=1 AND (SELECT COUNT(*) FROM users)&gt;0
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-011</code> - Boolean-based Blind SQLi (Time-based)</p>
+<hr />
+<h3 id="2-union-based-sql-injection-5-patterns">2. Union-based SQL Injection (5 patterns)</h3>
+<p>Detects data extraction attacks using UNION statements.</p>
+<h4 id="basic-union-select">Basic UNION SELECT</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT username FROM users UNION SELECT password FROM admins
+SELECT id FROM products UNION SELECT id FROM orders
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-012</code> - Union-based SQLi (SELECT)</p>
+<h4 id="union-all-complete-extraction">UNION ALL Complete Extraction</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users UNION ALL SELECT * FROM admins
+SELECT name FROM products UNION ALL SELECT name FROM services
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-013</code> - Union-based SQLi (UNION ALL)</p>
+<h4 id="system-table-targeting">System Table Targeting</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users UNION SELECT * FROM sys.tables
+SELECT * FROM products UNION SELECT * FROM information_schema.tables
+SELECT name FROM users UNION SELECT name FROM pg_tables
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-014</code> - Union-based SQLi (System Tables)</p>
+<h4 id="null-based-column-enumeration">NULL-based Column Enumeration</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users UNION SELECT NULL,NULL,NULL
+SELECT id FROM products UNION SELECT NULL,NULL,NULL,NULL
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-015</code> - Union-based SQLi (NULL)</p>
+<h4 id="multiple-union-operations">Multiple UNION Operations</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users UNION SELECT * FROM admins UNION SELECT * FROM logs
+SELECT name FROM products UNION SELECT name FROM services UNION SELECT name FROM inventory
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-016</code> - Union-based SQLi (Multiple)</p>
+<hr />
+<h3 id="3-time-based-blind-sql-injection-5-patterns">3. Time-based Blind SQL Injection (5 patterns)</h3>
+<p>Detects timing-based information extraction attacks.</p>
+<h4 id="sleep-function-attacks">SLEEP Function Attacks</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=1 AND SLEEP(5)
+SELECT * FROM products WHERE active=1 AND SLEEP(3)
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-017</code> - Time-based Blind SQLi (SLEEP)</p>
+<h4 id="benchmark-cpu-intensive-attacks">BENCHMARK CPU-intensive Attacks</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=1 AND BENCHMARK(1000000,MD5(1))
+SELECT * FROM products WHERE active=1 AND BENCHMARK(500000,SHA1(1))
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-018</code> - Time-based Blind SQLi (BENCHMARK)</p>
+<h4 id="postgresql-pg_sleep">PostgreSQL pg_sleep</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=1 AND pg_sleep(5)
+SELECT * FROM data WHERE active=1 AND pg_sleep(3)
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-019</code> - Time-based Blind SQLi (pg_sleep)</p>
+<h4 id="sql-server-waitfor-delay">SQL Server WAITFOR DELAY</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=1 AND WAITFOR DELAY '00:00:05'
+SELECT * FROM products WHERE active=1 AND WAITFOR DELAY '00:00:03'
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-020</code> - Time-based Blind SQLi (WAITFOR)</p>
+<h4 id="heavy-query-timing-attacks">Heavy Query Timing Attacks</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id&gt;0 AND (SELECT COUNT(*) FROM products WHERE id&gt;0)&gt;10
+SELECT * FROM data WHERE active=1 AND (SELECT COUNT(*) FROM logs WHERE id&gt;0)&gt;100
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-021</code> - Time-based Blind SQLi (Heavy Query)</p>
+<hr />
+<h3 id="4-error-based-sql-injection-5-patterns">4. Error-based SQL Injection (5 patterns)</h3>
+<p>Detects information disclosure through error message manipulation.</p>
+<h4 id="convert-function-exploitation">CONVERT Function Exploitation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=CONVERT(varchar,'test')
+SELECT * FROM products WHERE name=CONVERT(int,'invalid')
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-022</code> - Error-based SQLi (CONVERT)</p>
+<h4 id="cast-function-attacks">CAST Function Attacks</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE name=CAST('invalid' AS int)
+SELECT * FROM data WHERE id=CAST('text' AS datetime)
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-023</code> - Error-based SQLi (CAST)</p>
+<h4 id="mysql-updatexml-exploitation">MySQL UPDATEXML Exploitation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=UPDATEXML(1,'/test','invalid')
+SELECT * FROM products WHERE name=UPDATEXML(1,'//test','payload')
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-024</code> - Error-based SQLi (UPDATEXML)</p>
+<h4 id="mysql-extractvalue-exploitation">MySQL EXTRACTVALUE Exploitation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=EXTRACTVALUE(1,'//test')
+SELECT * FROM data WHERE name=EXTRACTVALUE(1,'/invalid/path')
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-025</code> - Error-based SQLi (EXTRACTVALUE)</p>
+<h4 id="division-by-zero-errors">Division by Zero Errors</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT 1/0 FROM users
+SELECT * FROM products WHERE id=1/0
+SELECT COUNT(*)/0 FROM data
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-026</code> - Error-based SQLi (Division by Zero)</p>
+<hr />
+<h3 id="5-second-order-sql-injection-3-patterns">5. Second-order SQL Injection (3 patterns)</h3>
+<p>Detects stored malicious code that executes later.</p>
+<h4 id="stored-procedure-execution">Stored Procedure Execution</h4>
+<pre><code class="language-sql">-- Detected patterns:
+INSERT INTO logs (message) VALUES ('test') AND EXEC('sp_configure')
+UPDATE users SET password='new' WHERE id=1 AND EXECUTE('xp_cmdshell')
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-027</code> - Second-order SQLi (Stored)</p>
+<h4 id="trigger-and-procedure-creation">Trigger and Procedure Creation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+CREATE TRIGGER test ON users AFTER INSERT AS EXEC('malicious_code')
+ALTER PROCEDURE sp_test AS EXEC('harmful_command')
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-028</code> - Second-order SQLi (Trigger)</p>
+<h4 id="malicious-view-creation">Malicious View Creation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+CREATE VIEW admin_view AS SELECT * FROM users UNION SELECT admin,pwd FROM admins
+ALTER VIEW user_data AS SELECT * FROM secret_table
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-029</code> - Second-order SQLi (View)</p>
+<hr />
+<h3 id="6-nosql-injection-2-patterns">6. NoSQL Injection (2 patterns)</h3>
+<p>Detects injection attacks in NoSQL databases.</p>
+<h4 id="mongodb-javascript-injection">MongoDB JavaScript Injection</h4>
+<pre><code class="language-sql">-- Detected patterns (MongoDB-style):
+db.users.find({$where: function() { return this.password == &quot;' + userInput + '&quot; }})
+db.products.find({name: {$ne: null}}) // Operator injection
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-030</code> - NoSQL Injection (MongoDB)</p>
+<h4 id="nosql-operator-manipulation">NoSQL Operator Manipulation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+db.data.find({$or: [{admin: true}, {$where: &quot;this.password=='&quot;+input+&quot;'&quot;}]})
+db.users.find({$and: [{role: &quot;user&quot;}, {name: {$ne: &quot;admin&quot;}}]})
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-031</code> - NoSQL Injection (Operator)</p>
+<hr />
+<h3 id="7-advanced-evasion-techniques-4-patterns">7. Advanced Evasion Techniques (4 patterns)</h3>
+<p>Detects sophisticated attack methods and bypass techniques.</p>
+<h4 id="combined-attack-vectors">Combined Attack Vectors</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=1 AND 1=1 UNION SELECT admin FROM users
+SELECT * FROM products WHERE name='test' OR 1=1 AND SLEEP(5)
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-032</code> - Advanced SQLi (Combined)</p>
+<h4 id="comment-based-evasion">Comment-based Evasion</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE id=1 /* AND 1=1 */ OR 1=1 --
+SELECT name FROM products /* comment */ UNION SELECT name FROM admins
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-033</code> - SQLi (Comment Evasion)</p>
+<h4 id="encoding-and-obfuscation">Encoding and Obfuscation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE name=0x61646d696e UNION SELECT 0x70617373
+SELECT * FROM products WHERE id=CHAR(49) UNION SELECT CHAR(97,100,109,105,110)
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-034</code> - SQLi (Encoding Evasion)</p>
+<h4 id="database-specific-function-exploitation">Database-specific Function Exploitation</h4>
+<pre><code class="language-sql">-- Detected patterns:
+SELECT * FROM users WHERE DBMS_LOCK.SLEEP(5)
+SELECT name FROM products WHERE DBMS_OUTPUT.PUT_LINE('exfiltrated')
+SELECT * FROM data WHERE SP_EXECUTESQL('SELECT * FROM admins')
+</code></pre>
+<p><strong>Rule</strong>: <code>SEC-INJ-035</code> - SQLi (Advanced DB Functions)</p>
+<hr />
+<h2 id="protection-recommendations">🛡️ Protection Recommendations</h2>
+<h3 id="1-parameterized-queries-primary-defense">1. Parameterized Queries (Primary Defense)</h3>
+<pre><code class="language-python"># ❌ Vulnerable
+query = &quot;SELECT * FROM users WHERE id = &quot; + user_input
+
+# ✅ Secure
+query = &quot;SELECT * FROM users WHERE id = %s&quot;
+cursor.execute(query, (user_input,))
+</code></pre>
+<h3 id="2-input-validation">2. Input Validation</h3>
+<ul>
+<li>Whitelist acceptable input patterns</li>
+<li>Validate data types and lengths</li>
+<li>Sanitize special characters</li>
+</ul>
+<h3 id="3-least-privilege">3. Least Privilege</h3>
+<ul>
+<li>Use database accounts with minimal permissions</li>
+<li>Separate read and write operations</li>
+<li>Implement role-based access controls</li>
+</ul>
+<h3 id="4-error-handling">4. Error Handling</h3>
+<ul>
+<li>Disable detailed error messages in production</li>
+<li>Implement generic error responses</li>
+<li>Log security events for monitoring</li>
+</ul>
+<hr />
+<h2 id="performance-impact">📊 Performance Impact</h2>
+<p>The OWASP Security Detector Suite is optimized for performance:</p>
+<ul>
+<li><strong>Regex-based matching</strong> for fast pattern detection</li>
+<li><strong>Minimal memory footprint</strong> per rule</li>
+<li><strong>Parallel processing</strong> capability for concurrent queries</li>
+<li><strong>1000+ queries/second</strong> target maintained with 35 security rules</li>
+</ul>
+<hr />
+<h2 id="related-documentation">🔗 Related Documentation</h2>
+<ul>
+<li><a href="../compliance/">Compliance Detectors</a> - GDPR, HIPAA, PCI compliance</li>
+<li><a href="../critical-detectors/">Critical Detectors</a> - Immediate security risks</li>
+<li><a href="../../getting-started/configuration/">Performance Detectors</a> - Query optimization</li>
+<li><a href="../custom-detectors/">Custom Detectors</a> - Creating additional rules</li>
+</ul>
+<hr />
+<h2 id="references">📚 References</h2>
+<ul>
+<li><a href="https://cheatsheetseries.owasp.org/cheatsheets/SQL_Injection_Prevention_Cheat_Sheet.html">OWASP SQL Injection Prevention Cheat Sheet</a></li>
+<li><a href="https://owasp.org/www-project-top-ten/">OWASP Top 10 - Injection</a></li>
+<li><a href="https://owasp.org/www-project-web-security-testing-guide/">SQL Injection Testing Guide</a></li>
+</ul>
+<hr />
+<p><em>Last Updated: Sprint 1 (2025-12-19)</em>
+<em>Security Coverage: OWASP Top 10 + Advanced Patterns</em></p>
 
 
 
