@@ -466,6 +466,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../docker-podman-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker & Podman Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../github-actions/" class="md-nav__link">
         
   
@@ -610,57 +638,576 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-pre-commit" class="md-nav__link">
+  <a href="#complete-pre-commit-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📂 Install Pre-Commit
+        🚀 Complete Pre-Commit Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Complete Pre-Commit Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install Pre-Commit
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#create-configuration" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-create-configuration-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚙️ Create Configuration
+        2. Create Configuration File
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-sql-file" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3-install-hooks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📦 Sample SQL File
+        3. Install Hooks
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#run-pre-commit" class="md-nav__link">
+  <a href="#advanced-configurations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Run Pre-Commit
+        🔧 Advanced Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Advanced Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-specific-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment-Specific Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment-Specific Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit-configyaml-with-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .pre-commit-config.yaml with Environment Variables
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#exported-results" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#conditional-hooks-based-on-files-changed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📤 Exported Results
+        Conditional Hooks Based on Files Changed
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-stage-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Stage Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Stage Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit-hooks-local-files-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Commit Hooks (Local Files Only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-push-hooks-include-remote-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Push Hooks (Include Remote Changes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-message-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Message Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specialized-hook-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Specialized Hook Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Specialized Hook Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-focused-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security-Focused Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-focused-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance-Focused Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-validation-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Validation Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enterprise-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏢 Enterprise Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏢 Enterprise Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organization-wide-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organization-Wide Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organization-Wide Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centralized-configuration-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Centralized Configuration Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-repository-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Template Repository Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compliance-and-audit-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance and Audit Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compliance and Audit Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audit-trail-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Trail Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compliance-reporting-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance Reporting Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-sql-files-for-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Sample SQL Files for Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Sample SQL Files for Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-sql-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test SQL Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Configuration Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slowqltoml-for-pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .slowql.toml for Pre-Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook-management-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Hook Management Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Hook Management Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Troubleshooting Pre-Commit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Troubleshooting Pre-Commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues and Solutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues and Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-hook-fails-with-import-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Hook Fails with Import Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-hook-times-out-on-large-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Hook Times Out on Large Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-configuration-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Configuration File Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 Performance Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔔 Integration with Development Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔔 Integration with Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ide-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IDE Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-hook-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Hook Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -673,6 +1220,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="🧠 Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hook-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Hook Organization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuration-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configuration Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-team-adoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Team Adoption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-monitoring-and-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Monitoring and Reporting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -680,6 +1277,17 @@
     <span class="md-ellipsis">
       
         🔗 Related Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Additional Resources
       
     </span>
   </a>
@@ -2167,57 +2775,576 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install-pre-commit" class="md-nav__link">
+  <a href="#complete-pre-commit-setup" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📂 Install Pre-Commit
+        🚀 Complete Pre-Commit Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🚀 Complete Pre-Commit Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-install-pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Install Pre-Commit
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#create-configuration" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#2-create-configuration-file" class="md-nav__link">
     <span class="md-ellipsis">
       
-        ⚙️ Create Configuration
+        2. Create Configuration File
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#sample-sql-file" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#3-install-hooks" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📦 Sample SQL File
+        3. Install Hooks
       
     </span>
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
       
         <li class="md-nav__item">
-  <a href="#run-pre-commit" class="md-nav__link">
+  <a href="#advanced-configurations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        🚀 Run Pre-Commit
+        🔧 Advanced Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Advanced Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-specific-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment-Specific Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Environment-Specific Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit-configyaml-with-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .pre-commit-config.yaml with Environment Variables
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#exported-results" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#conditional-hooks-based-on-files-changed" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📤 Exported Results
+        Conditional Hooks Based on Files Changed
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#multi-stage-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Stage Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Multi-Stage Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pre-commit-hooks-local-files-only" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Commit Hooks (Local Files Only)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pre-push-hooks-include-remote-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Pre-Push Hooks (Include Remote Changes)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-message-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Message Hooks
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#specialized-hook-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🎯 Specialized Hook Configurations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🎯 Specialized Hook Configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-focused-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security-Focused Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-focused-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance-Focused Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-validation-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Validation Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enterprise-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🏢 Enterprise Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🏢 Enterprise Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#organization-wide-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Organization-Wide Configuration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Organization-Wide Configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#centralized-configuration-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Centralized Configuration Repository
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#template-repository-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Template Repository Setup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compliance-and-audit-hooks" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance and Audit Hooks
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Compliance and Audit Hooks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#audit-trail-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Audit Trail Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#compliance-reporting-hook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Compliance Reporting Hook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sample-sql-files-for-testing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Sample SQL Files for Testing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Sample SQL Files for Testing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-sql-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test SQL Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Configuration Files
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slowqltoml-for-pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .slowql.toml for Pre-Commit
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hook-management-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🛠️ Hook Management Commands
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🛠️ Hook Management Commands">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installation Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#execution-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Execution Commands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cicd-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CI/CD Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting-pre-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔍 Troubleshooting Pre-Commit
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔍 Troubleshooting Pre-Commit">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#common-issues-and-solutions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Issues and Solutions
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Issues and Solutions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#issue-hook-fails-with-import-error" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Hook Fails with Import Error
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-hook-times-out-on-large-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Hook Times Out on Large Files
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#issue-configuration-file-not-found" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issue: Configuration File Not Found
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debug Mode
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📈 Performance Optimization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📈 Performance Optimization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caching-strategy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Caching Strategy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parallel-execution" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Parallel Execution
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#integration-with-development-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔔 Integration with Development Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔔 Integration with Development Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ide-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IDE Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-hook-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Hook Scripts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notification-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2230,6 +3357,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="🧠 Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-hook-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Hook Organization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuration-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Configuration Management
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-team-adoption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Team Adoption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-monitoring-and-reporting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Monitoring and Reporting
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2237,6 +3414,17 @@
     <span class="md-ellipsis">
       
         🔗 Related Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Additional Resources
       
     </span>
   </a>
@@ -2261,53 +3449,634 @@
 
 
 <h1 id="pre-commit-hook">Pre-Commit Hook</h1>
-<p>This example shows how to integrate SlowQL into a pre‑commit workflow so SQL files are automatically analyzed before every commit.</p>
+<p>This comprehensive example shows how to integrate SlowQL into pre-commit workflows so SQL files are automatically analyzed before every commit. Includes advanced configurations, multiple hook types, and enterprise-grade setup.</p>
 <hr />
-<h2 id="install-pre-commit">📂 Install Pre-Commit</h2>
-<pre><code class="language-Bash">pip install pre-commit
+<h2 id="complete-pre-commit-setup">🚀 Complete Pre-Commit Setup</h2>
+<h3 id="1-install-pre-commit">1. Install Pre-Commit</h3>
+<pre><code class="language-bash"># Install pre-commit globally (recommended)
+pip install pre-commit
+
+# Or install per-project
+pipenv install --dev pre-commit
+# or
+poetry install --group dev pre-commit
 </code></pre>
-<hr />
-<h2 id="create-configuration">⚙️ Create Configuration</h2>
-<p>Add a <code>.pre-commit-config.yaml</code> file to your repo:</p>
-<pre><code class="language-code">repos:
+<h3 id="2-create-configuration-file">2. Create Configuration File</h3>
+<p>Create <code>.pre-commit-config.yaml</code>:</p>
+<pre><code class="language-yaml"># Pre-commit configuration for SlowQL
+repos:
+  # Local repository with SlowQL hooks
   - repo: local
     hooks:
-      - id: slowql
-        name: SlowQL Analysis
-        entry: slowql --no-intro --fast --input-file sample.sql --export json --output results.json
+      # Primary SlowQL analysis hook
+      - id: slowql-analysis
+        name: SlowQL SQL Analysis
+        entry: slowql --non-interactive --export json
         language: system
-        files: \.sql$
+        files: '\.(sql|ddl|dml)$'
+        pass_filenames: false
+        stages: [commit]
+        args: ['--input-file']
+
+      # Security-focused analysis hook
+      - id: slowql-security
+        name: SlowQL Security Scan
+        entry: slowql --non-interactive --analyzer security --export json
+        language: system
+        files: '\.(sql|ddl|dml)$'
+        pass_filenames: false
+        stages: [commit]
+        args: ['--input-file']
+
+      # Performance-focused analysis hook
+      - id: slowql-performance
+        name: SlowQL Performance Scan
+        entry: slowql --non-interactive --analyzer performance --export json
+        language: system
+        files: '\.(sql|ddl|dml)$'
+        pass_filenames: false
+        stages: [commit]
+        args: ['--input-file']
+
+      # Quick analysis for fast feedback
+      - id: slowql-fast
+        name: SlowQL Fast Check
+        entry: slowql --fast --non-interactive
+        language: system
+        files: '\.(sql|ddl|dml)$'
+        pass_filenames: false
+        stages: [commit]
+        args: ['--input-file']
+
+      # Configuration validation hook
+      - id: slowql-config-validate
+        name: SlowQL Config Validation
+        entry: slowql --validate-config
+        language: system
+        files: '\.slowql\.toml$'
+        pass_filenames: true
+        stages: [commit]
+
+  # Pre-commit built-in hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.4.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-added-large-files
+      args: ['--maxkb=1000']
+      - id: check-case-conflict
+      - id: check-merge-conflict
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: debug-statements
+      - id: requirements-txt-fixer
+
+  # Code formatting hooks
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        language_version: python3.12
+
+  # Python linting
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: v0.0.270
+    hooks:
+      - id: ruff
+        args: [--fix, --exit-non-zero-on-fix]
+
+# Global configuration
+fail_fast: false  # Continue checking all files even if one fails
+minimum_pre_commit_version: '3.0.0'
+default_stages: [commit]
+</code></pre>
+<h3 id="3-install-hooks">3. Install Hooks</h3>
+<pre><code class="language-bash"># Install pre-commit hooks
+pre-commit install
+
+# Install hooks for all stages
+pre-commit install --hook-type pre-commit
+pre-commit install --hook-type pre-push
+pre-commit install --hook-type commit-msg
+
+# Install specific hooks
+pre-commit install --hook-type pre-commit --hook-id slowql-analysis
+pre-commit install --hook-type pre-push --hook-id slowql-security
 </code></pre>
 <hr />
-<h2 id="sample-sql-file">📦 Sample SQL File</h2>
-<p>Include a file like <code>sample.sql</code> in your repo:</p>
-<pre><code class="language-code">SELECT * FROM users WHERE email LIKE '%@gmail.com';  
-DELETE FROM orders;
+<h2 id="advanced-configurations">🔧 Advanced Configurations</h2>
+<h3 id="environment-specific-configuration">Environment-Specific Configuration</h3>
+<h4 id="pre-commit-configyaml-with-environment-variables"><code>.pre-commit-config.yaml</code> with Environment Variables</h4>
+<pre><code class="language-yaml">repos:
+  - repo: local
+    hooks:
+      - id: slowql-analysis
+        name: SlowQL SQL Analysis
+        entry: bash -c 'slowql --non-interactive --export json --config ${SLOWQL_CONFIG:-.slowql.toml}'
+        language: system
+        files: '\.(sql|ddl|dml)$'
+        pass_filenames: false
+        stages: [commit]
+        args: ['--input-file']
+        env:
+          SLOWQL_CONFIG: '.slowql.toml'
+</code></pre>
+<h4 id="conditional-hooks-based-on-files-changed">Conditional Hooks Based on Files Changed</h4>
+<pre><code class="language-yaml">repos:
+  - repo: local
+    hooks:
+      - id: slowql-changed-files
+        name: SlowQL Analysis (Changed Files Only)
+        entry: &gt;
+          bash -c '
+            if git diff --cached --name-only | grep -q &quot;\.sql$&quot;; then
+              echo &quot;SQL files changed - running SlowQL analysis&quot;
+              slowql --non-interactive --export json --input-file $(git diff --cached --name-only | grep &quot;\.sql$&quot; | tr &quot;\n&quot; &quot; &quot;)
+            else
+              echo &quot;No SQL files changed - skipping SlowQL analysis&quot;
+            fi
+          '
+        language: system
+        stages: [commit]
+</code></pre>
+<h3 id="multi-stage-hooks">Multi-Stage Hooks</h3>
+<h4 id="pre-commit-hooks-local-files-only">Pre-Commit Hooks (Local Files Only)</h4>
+<pre><code class="language-yaml">- repo: local
+  hooks:
+    - id: slowql-local
+      name: SlowQL Analysis (Local Changes)
+      entry: slowql --non-interactive --input-file .
+      language: system
+      files: '\.(sql|ddl|dml)$'
+      stages: [commit]
+</code></pre>
+<h4 id="pre-push-hooks-include-remote-changes">Pre-Push Hooks (Include Remote Changes)</h4>
+<pre><code class="language-yaml">- repo: local
+  hooks:
+    - id: slowql-push
+      name: SlowQL Analysis (Include Remote)
+      entry: slowql --non-interactive --input-file .
+      language: system
+      files: '\.(sql|ddl|dml)$'
+      stages: [push]
+      pass_filenames: false
+</code></pre>
+<h4 id="commit-message-hooks">Commit Message Hooks</h4>
+<pre><code class="language-yaml">- repo: local
+  hooks:
+    - id: slowql-commit-msg
+      name: SlowQL Commit Message Check
+      entry: bash -c '
+        if git log --oneline -1 | grep -qi &quot;sql\|database\|query&quot;; then
+          echo &quot;SQL-related commit detected - consider running full analysis&quot;
+        fi
+      '
+      language: system
+      stages: [commit-msg]
 </code></pre>
 <hr />
-<h2 id="run-pre-commit">🚀 Run Pre-Commit</h2>
-<p>Install hooks:</p>
-<pre><code class="language-Bash">pre-commit install
+<h2 id="specialized-hook-configurations">🎯 Specialized Hook Configurations</h2>
+<h3 id="security-focused-hook">Security-Focused Hook</h3>
+<pre><code class="language-yaml"># Enhanced security hook with detailed reporting
+- id: slowql-security-detailed
+  name: SlowQL Security Analysis
+  entry: &gt;
+    bash -c '
+      slowql --non-interactive \
+        --analyzer security \
+        --export json \
+        --out ./reports/security-check-$(date +%Y%m%d-%H%M%S).json \
+        --verbose
+    '
+  language: system
+  files: '\.(sql|ddl|dml)$'
+  pass_filenames: false
+  stages: [commit]
+  always_run: false
 </code></pre>
-<p>Now every time you commit, SlowQL will run against staged <code>.sql</code> files.</p>
+<h3 id="performance-focused-hook">Performance-Focused Hook</h3>
+<pre><code class="language-yaml">- id: slowql-performance-check
+  name: SlowQL Performance Analysis
+  entry: &gt;
+    bash -c '
+      slowql --non-interactive \
+        --analyzer performance \
+        --export json \
+        --out ./reports/performance-check-$(date +%Y%m%d-%H%M%S).json \
+        --verbose
+    '
+  language: system
+  files: '\.(sql|ddl|dml)$'
+  pass_filenames: false
+  stages: [commit]
+</code></pre>
+<h3 id="configuration-validation-hook">Configuration Validation Hook</h3>
+<pre><code class="language-yaml">- id: slowql-config-validation
+  name: SlowQL Configuration Validation
+  entry: &gt;
+    bash -c '
+      if [ -f &quot;.slowql.toml&quot; ]; then
+        slowql --validate-config --config .slowql.toml
+      else
+        echo &quot;No .slowql.toml found - using default configuration&quot;
+      fi
+    '
+  language: system
+  files: '\.slowql\.toml$'
+  pass_filenames: true
+  stages: [commit]
+</code></pre>
 <hr />
-<h2 id="exported-results">📤 Exported Results</h2>
-<p>The hook will generate <code>results.json</code> containing detector findings. If issues are detected, the commit will fail until fixed.</p>
+<h2 id="enterprise-configuration">🏢 Enterprise Configuration</h2>
+<h3 id="organization-wide-configuration">Organization-Wide Configuration</h3>
+<h4 id="centralized-configuration-repository">Centralized Configuration Repository</h4>
+<pre><code class="language-yaml"># .pre-commit-config.yaml (organization template)
+repos:
+  - repo: https://github.com/your-org/slowql-precommit-hooks
+    rev: v1.3.0
+    hooks:
+      - id: slowql-enterprise
+        name: SlowQL Enterprise Analysis
+        entry: slowql --non-interactive --config /etc/slowql/enterprise.toml
+        language: system
+        files: '\.(sql|ddl|dml)$'
+        stages: [commit]
+        args: ['--input-file']
+        additional_dependencies:
+          - slowql[enterprise]
+</code></pre>
+<h4 id="template-repository-setup">Template Repository Setup</h4>
+<pre><code class="language-bash"># Create template repository
+git clone https://github.com/your-org/slowql-precommit-template.git
+cd slowql-precommit-template
+
+# Update organization-specific configuration
+sed 's/your-org/ACME-CORP/g' .pre-commit-config.yaml &gt; .pre-commit-config.yaml.tmp
+mv .pre-commit-config.yaml.tmp .pre-commit-config.yaml
+
+# Commit and push
+git add .
+git commit -m &quot;Update organization configuration&quot;
+git push origin main
+</code></pre>
+<h3 id="compliance-and-audit-hooks">Compliance and Audit Hooks</h3>
+<h4 id="audit-trail-hook">Audit Trail Hook</h4>
+<pre><code class="language-yaml">- id: slowql-audit-trail
+  name: SlowQL Audit Trail
+  entry: &gt;
+    bash -c '
+      AUDIT_FILE=&quot;./.slowql/audit-$(date +%Y%m%d).log&quot;
+      mkdir -p ./.slowql
+      echo &quot;[$(date)] Commit: $(git rev-parse HEAD) - Author: $(git log -1 --pretty=%an) - Files: $(git diff --cached --name-only | grep &quot;\.sql$&quot; | tr &quot;\n&quot; &quot;,&quot;)&quot; &gt;&gt; $AUDIT_FILE
+    '
+  language: system
+  files: '\.(sql|ddl|dml)$'
+  stages: [commit]
+  pass_filenames: false
+</code></pre>
+<h4 id="compliance-reporting-hook">Compliance Reporting Hook</h4>
+<pre><code class="language-yaml">- id: slowql-compliance-report
+  name: SlowQL Compliance Report
+  entry: &gt;
+    bash -c '
+      slowql --non-interactive \
+        --analyzer compliance \
+        --export json \
+        --out ./reports/compliance-$(date +%Y%m%d-%H%M%S).json \
+        --config .slowql.compliance.toml
+    '
+  language: system
+  files: '\.(sql|ddl|dml)$'
+  stages: [commit]
+  pass_filenames: false
+</code></pre>
+<hr />
+<h2 id="sample-sql-files-for-testing">📊 Sample SQL Files for Testing</h2>
+<h3 id="test-sql-files">Test SQL Files</h3>
+<pre><code class="language-sql">-- sample.sql (Good examples)
+SELECT id, name, email FROM users WHERE active = true;
+INSERT INTO orders (user_id, product_id, quantity) VALUES (?, ?, ?);
+UPDATE profiles SET last_login = NOW() WHERE id = ?;
+
+-- sample_bad.sql (Issues for testing)
+SELECT * FROM users WHERE email LIKE '%@gmail.com';  -- SELECT *
+UPDATE users SET password = 'secret123' WHERE id = 1;  -- Hardcoded password
+DELETE FROM orders;  -- Missing WHERE clause
+</code></pre>
+<hr />
+<h2 id="configuration-files">🔧 Configuration Files</h2>
+<h3 id="slowqltoml-for-pre-commit"><code>.slowql.toml</code> for Pre-Commit</h3>
+<pre><code class="language-toml">[general]
+non_interactive = true
+verbose_output = false
+cache_enabled = true
+
+[rule_categories]
+security = true
+performance = true
+cost = true
+reliability = true
+quality = true
+
+[rules.sql_injection]
+enabled = true
+severity = &quot;critical&quot;
+message = &quot;Potential SQL injection detected&quot;
+suggestion = &quot;Use parameterized queries&quot;
+
+[rules.select_star]
+enabled = true
+severity = &quot;medium&quot;
+message = &quot;Avoid SELECT * queries&quot;
+suggestion = &quot;Specify columns explicitly&quot;
+
+[rules.missing_where]
+enabled = true
+severity = &quot;high&quot;
+message = &quot;UPDATE/DELETE without WHERE clause&quot;
+suggestion = &quot;Add WHERE clause to prevent data loss&quot;
+
+[rules.hardcoded_creds]
+enabled = true
+severity = &quot;critical&quot;
+message = &quot;Hardcoded credentials detected&quot;
+suggestion = &quot;Use environment variables or secrets management&quot;
+
+[analyzers.security]
+enabled_rules = [&quot;sql_injection&quot;, &quot;hardcoded_creds&quot;, &quot;excessive_privileges&quot;]
+severity_threshold = &quot;medium&quot;
+
+[analyzers.performance]
+enabled_rules = [&quot;select_star&quot;, &quot;non_sargable&quot;, &quot;deep_pagination&quot;]
+severity_threshold = &quot;medium&quot;
+
+# Pre-commit specific settings
+[pre_commit]
+fail_on_critical = true
+fail_on_high = false
+generate_reports = false
+report_format = &quot;json&quot;
+</code></pre>
+<hr />
+<h2 id="hook-management-commands">🛠️ Hook Management Commands</h2>
+<h3 id="installation-commands">Installation Commands</h3>
+<pre><code class="language-bash"># Install all hooks
+pre-commit install
+
+# Install specific hooks
+pre-commit install --hook-type pre-commit --hook-id slowql-analysis
+pre-commit install --hook-type pre-push --hook-id slowql-security
+
+# Install without auto-running on commit
+pre-commit install --hook-type pre-commit --hook-id slowql-analysis --skip
+</code></pre>
+<h3 id="execution-commands">Execution Commands</h3>
+<pre><code class="language-bash"># Run hooks on all files
+pre-commit run --all-files
+
+# Run specific hook
+pre-commit run slowql-analysis --all-files
+
+# Run hooks on staged files only
+pre-commit run
+
+# Run hooks with verbose output
+pre-commit run --verbose
+
+# Skip specific hooks
+SKIP=slowql-performance git commit -m &quot;Skip performance check&quot;
+
+# Run hooks against specific files
+pre-commit run slowql-analysis --files path/to/file.sql
+
+# Update hook versions
+pre-commit autoupdate
+
+# Clean up hook cache
+pre-commit clean
+
+# Uninstall hooks
+pre-commit uninstall
+</code></pre>
+<h3 id="cicd-integration">CI/CD Integration</h3>
+<pre><code class="language-bash"># Run pre-commit in CI environment
+pre-commit run --all-files --show-diff-on-failure
+
+# Run without modifying files
+pre-commit run --all-files --no-verify
+
+# Run specific stages
+pre-commit run --all-files --hook-stage commit
+
+# Parallel execution
+pre-commit run --all-files --jobs 4
+</code></pre>
+<hr />
+<h2 id="troubleshooting-pre-commit">🔍 Troubleshooting Pre-Commit</h2>
+<h3 id="common-issues-and-solutions">Common Issues and Solutions</h3>
+<h4 id="issue-hook-fails-with-import-error">Issue: Hook Fails with Import Error</h4>
+<pre><code class="language-bash"># Solution: Ensure SlowQL is installed in the environment
+pip install slowql[dev]
+
+# Or specify full path to slowql
+pre-commit config .pre-commit-config.yaml
+</code></pre>
+<h4 id="issue-hook-times-out-on-large-files">Issue: Hook Times Out on Large Files</h4>
+<pre><code class="language-yaml"># Solution: Add timeout configuration
+- id: slowql-analysis
+  name: SlowQL Analysis
+  entry: timeout 300 slowql --non-interactive --input-file .
+  language: system
+  files: '\.(sql|ddl|dml)$'
+  stages: [commit]
+  pass_filenames: false
+  timeout: 300  # 5 minutes
+</code></pre>
+<h4 id="issue-configuration-file-not-found">Issue: Configuration File Not Found</h4>
+<pre><code class="language-yaml"># Solution: Use default config or specify path
+- id: slowql-analysis
+  name: SlowQL Analysis
+  entry: slowql --non-interactive --input-file . --config .slowql.toml
+  language: system
+  files: '\.(sql|ddl|dml)$'
+  stages: [commit]
+  pass_filenames: false
+</code></pre>
+<h3 id="debug-mode">Debug Mode</h3>
+<pre><code class="language-bash"># Enable debug output
+PRE_COMMIT_DEBUG=1 pre-commit run --verbose
+
+# Run single hook with debug
+pre-commit run slowql-analysis --verbose --debug
+
+# Check hook configuration
+pre-commit validate-config
+pre-commit validate-manifest
+</code></pre>
+<hr />
+<h2 id="performance-optimization">📈 Performance Optimization</h2>
+<h3 id="caching-strategy">Caching Strategy</h3>
+<pre><code class="language-yaml"># Enable caching for better performance
+repos:
+  - repo: local
+    hooks:
+      - id: slowql-analysis
+        name: SlowQL Analysis
+        entry: slowql --non-interactive --input-file .
+        language: system
+        files: '\.(sql|ddl|dml)$'
+        stages: [commit]
+        pass_filenames: false
+        entry: &gt;
+          bash -c '
+            if [ -f .slowql_cache.json ]; then
+              echo &quot;Using cached results&quot;
+              slowql --non-interactive --input-file . --use-cache
+            else
+              slowql --non-interactive --input-file . --generate-cache
+            fi
+          '
+</code></pre>
+<h3 id="parallel-execution">Parallel Execution</h3>
+<pre><code class="language-bash"># Run hooks in parallel for better performance
+pre-commit run --all-files --jobs 4
+
+# Configure parallel execution in config
+# Add to .pre-commit-config.yaml:
+default_language_version:
+  python: python3.12
+default_stages: [commit]
+maximum_keyword_length: 20
+</code></pre>
+<hr />
+<h2 id="integration-with-development-workflow">🔔 Integration with Development Workflow</h2>
+<h3 id="ide-integration">IDE Integration</h3>
+<pre><code class="language-bash"># Generate IDE-specific configuration
+pre-commit run --hook-stage manual --format visual-studio-code
+
+# Create pre-commit hooks for specific IDEs
+# VS Code: Use pre-commit extension
+# PyCharm: Configure external tools
+</code></pre>
+<h3 id="git-hook-scripts">Git Hook Scripts</h3>
+<pre><code class="language-bash">#!/bin/bash
+# .git/hooks/pre-commit
+
+# Run pre-commit
+exec pre-commit run --hook-stage commit
+
+# Custom additional checks
+if ! ./scripts/custom-sql-check.sh; then
+    echo &quot;Custom SQL checks failed&quot;
+    exit 1
+fi
+</code></pre>
+<h3 id="notification-integration">Notification Integration</h3>
+<pre><code class="language-yaml">- id: slowql-notification
+  name: SlowQL Notification
+  entry: &gt;
+    bash -c '
+      if [ &quot;$PRE_COMMIT_STATUS&quot; = &quot;failed&quot; ]; then
+        echo &quot;SlowQL analysis failed - sending notification&quot;
+        # Add your notification logic here
+        # curl -X POST -H &quot;Content-Type: application/json&quot; \
+        #   --data &quot;{\&quot;text\&quot;:\&quot;SlowQL analysis failed for commit $COMMIT_SHA\&quot;}&quot; \
+        #   &quot;$SLACK_WEBHOOK_URL&quot;
+      fi
+    '
+  language: system
+  stages: [commit]
+  pass_filenames: false
+</code></pre>
 <hr />
 <h2 id="best-practices">🧠 Best Practices</h2>
+<h3 id="1-hook-organization">1. Hook Organization</h3>
 <ul>
-<li>Use <code>--no-intro</code> for clean logs  </li>
-<li>Use <code>--fast</code> for quicker checks  </li>
-<li>Keep detector configs in <code>.slowql.toml</code> for consistency  </li>
-<li>Run <code>pre-commit run --all-files</code> to validate the entire repo  </li>
+<li><strong>Start simple</strong>: Begin with basic analysis hook</li>
+<li><strong>Add complexity gradually</strong>: Add security and performance hooks as needed</li>
+<li><strong>Use fail-fast</strong>: Configure hooks to fail early for critical issues</li>
+<li><strong>Optimize performance</strong>: Use caching and parallel execution</li>
 </ul>
+<h3 id="2-configuration-management">2. Configuration Management</h3>
+<pre><code class="language-yaml"># Use environment-specific configurations
+- id: slowql-analysis
+  name: SlowQL Analysis
+  entry: slowql --non-interactive --input-file . --config ${SLOWQL_CONFIG:-.slowql.toml}
+  language: system
+  files: '\.(sql|ddl|dml)$'
+  stages: [commit]
+  pass_filenames: false
+  env:
+    SLOWQL_CONFIG: '.slowql.toml'
+</code></pre>
+<h3 id="3-team-adoption">3. Team Adoption</h3>
+<pre><code class="language-bash"># Provide setup scripts for team members
+#!/bin/bash
+# setup-pre-commit.sh
+
+echo &quot;Setting up SlowQL pre-commit hooks...&quot;
+
+# Install dependencies
+pip install pre-commit slowql[dev]
+
+# Install hooks
+pre-commit install
+
+# Run initial analysis
+pre-commit run --all-files
+
+echo &quot;Setup complete!&quot;
+</code></pre>
+<h3 id="4-monitoring-and-reporting">4. Monitoring and Reporting</h3>
+<pre><code class="language-yaml"># Add monitoring hooks
+- id: slowql-metrics
+  name: SlowQL Metrics Collection
+  entry: &gt;
+    bash -c '
+      METRICS_FILE=&quot;./.slowql/metrics.json&quot;
+      slowql --non-interactive --input-file . --export json --out /tmp/metrics.json || true
+      if [ -f /tmp/metrics.json ]; then
+        python3 -c &quot;
+          import json, sys
+          try:
+            with open('/tmp/metrics.json') as f:
+              data = json.load(f)
+            metrics = {
+              'timestamp': '$(date -Iseconds)',
+              'total_issues': data.get('statistics', {}).get('total_issues', 0),
+              'critical': data.get('statistics', {}).get('by_severity', {}).get('CRITICAL', 0)
+            }
+            with open('$METRICS_FILE', 'w') as out:
+              json.dump(metrics, out)
+          except Exception as e:
+            print(f'Metrics collection failed: {e}')
+        &quot;
+      fi
+    '
+  language: system
+  files: '\.(sql|ddl|dml)$'
+  stages: [commit]
+  pass_filenames: false
+</code></pre>
 <hr />
 <h2 id="related-examples">🔗 Related Examples</h2>
 <ul>
-<li><a href="../basic-usage/">Basic Usage</a>  </li>
-<li><a href="../github-actions/">GitHub Actions</a>  </li>
-<li><a href="../gitlab-ci/">GitLab CI</a>  </li>
-<li><a href="../jenkins/">Jenkins</a>  </li>
+<li><a href="../basic-usage/">Basic Usage</a></li>
+<li><a href="../docker-podman-integration/">Docker &amp; Podman Integration</a></li>
+<li><a href="../github-actions/">GitHub Actions</a></li>
+<li><a href="../gitlab-ci/">GitLab CI</a></li>
+<li><a href="../jenkins/">Jenkins</a></li>
+</ul>
+<hr />
+<h2 id="additional-resources">📚 Additional Resources</h2>
+<ul>
+<li><a href="https://pre-commit.com/">Pre-commit Documentation</a></li>
+<li><a href="https://github.com/pre-commit/pre-commit-hooks">Pre-commit Hooks Repository</a></li>
+<li><a href="https://pre-commit.com/#creating-new-hooks">Creating Custom Hooks</a></li>
+<li><a href="https://pre-commit.com/#config">Pre-commit Configuration</a></li>
 </ul>
 
 

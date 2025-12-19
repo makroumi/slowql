@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../basic-usage/">
+        <link rel="prev" href="../docker-podman-integration/">
       
       
         <link rel="next" href="../gitlab-ci/">
@@ -463,6 +463,34 @@
                 
   
   
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-podman-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Docker & Podman Integration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
     
   
   
@@ -526,10 +554,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-file" class="md-nav__link">
+  <a href="#complete-workflow-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📂 Workflow File
+        🚀 Complete Workflow Example
       
     </span>
   </a>
@@ -537,24 +565,130 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-sql-file" class="md-nav__link">
+  <a href="#repository-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📦 Sample SQL File
+        📂 Repository Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📂 Repository Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slowqltoml-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .slowql.toml (Configuration)
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#exported-results" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#sample-sql-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📤 Exported Results
+        Sample SQL Files
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Workflow Customization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Workflow Customization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger Conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Report Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Report Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-pages-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Pages Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slack-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slack Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -567,6 +701,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="🧠 Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-workflow-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Workflow Organization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-quality-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Quality Gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Performance Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -574,6 +758,17 @@
     <span class="md-ellipsis">
       
         🔗 Related Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Additional Resources
       
     </span>
   </a>
@@ -2145,10 +2340,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-file" class="md-nav__link">
+  <a href="#complete-workflow-example" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📂 Workflow File
+        🚀 Complete Workflow Example
       
     </span>
   </a>
@@ -2156,24 +2351,130 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-sql-file" class="md-nav__link">
+  <a href="#repository-structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📦 Sample SQL File
+        📂 Repository Structure
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📂 Repository Structure">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#slowqltoml-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        .slowql.toml (Configuration)
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#exported-results" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#sample-sql-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        📤 Exported Results
+        Sample SQL Files
       
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#workflow-customization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        🔧 Workflow Customization
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="🔧 Workflow Customization">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trigger-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trigger Conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-dependencies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Job Dependencies
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📊 Report Integration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="📊 Report Integration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#github-pages-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        GitHub Pages Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#slack-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Slack Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -2186,6 +2487,56 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="🧠 Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-workflow-organization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Workflow Organization
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-quality-gates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Quality Gates
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-security-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Security Considerations
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-performance-optimization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Performance Optimization
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2193,6 +2544,17 @@
     <span class="md-ellipsis">
       
         🔗 Related Examples
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-resources" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        📚 Additional Resources
       
     </span>
   </a>
@@ -2217,52 +2579,440 @@
 
 
 <h1 id="github-actions">GitHub Actions</h1>
-<p>This example shows how to run SlowQL inside a GitHub Actions workflow to automatically analyze SQL files on every push or pull request.</p>
+<p>This comprehensive example shows how to run SlowQL inside GitHub Actions workflows to automatically analyze SQL files on every push, pull request, or on a schedule. Includes advanced quality gates, multi-platform testing, and comprehensive reporting.</p>
 <hr />
-<h2 id="workflow-file">📂 Workflow File</h2>
-<p>Create <code>.github/workflows/slowql.yml</code>:</p>
-<pre><code class="language-code">name: SlowQL Analysis
-on: [push, pull_request]
+<h2 id="complete-workflow-example">🚀 Complete Workflow Example</h2>
+<p>Create <code>.github/workflows/slowql-analysis.yml</code>:</p>
+<pre><code class="language-yaml">name: SlowQL Analysis
+on:
+  push:
+    paths:
+      - '**.sql'
+      - '.github/workflows/slowql-analysis.yml'
+      - '.slowql.toml'
+  pull_request:
+    paths:
+      - '**.sql'
+      - '.github/workflows/slowql-analysis.yml'
+      - '.slowql.toml'
+  schedule:
+    # Weekly security audit every Sunday at 2 AM UTC
+    - cron: '0 2 * * 0'
+  workflow_dispatch:  # Allow manual triggering
+    inputs:
+      analysis_type:
+        description: 'Type of analysis to perform'
+        required: true
+        default: 'full'
+        type: choice
+        options:
+          - full
+          - security-only
+          - performance-only
+
+env:
+  SLOWQL_VERSION: &quot;latest&quot;
+  PYTHON_VERSION: &quot;3.12&quot;
 
 jobs:
-  analyze:
+  slowql-analysis:
+    name: SlowQL Analysis
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: [3.11, 3.12]
+
     steps:
-      - uses: actions/checkout@v3
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
         with:
-          python-version: &quot;3.11&quot;
+          fetch-depth: 0  # Full history for comprehensive analysis
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt', '**/pyproject.toml') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
       - name: Install SlowQL
-        run: pip install slowql
-      - name: Run Analysis
         run: |
-          slowql --no-intro --fast --input-file sample.sql --export json --output results.json
+          python -m pip install --upgrade pip
+          pip install slowql[dev] readchar
+
+      - name: Create analysis directories
+        run: |
+          mkdir -p reports
+          mkdir -p temp
+
+      - name: Run SlowQL Analysis
+        run: |
+          # Determine analysis type
+          ANALYSIS_TYPE=&quot;${{ github.event.inputs.analysis_type || 'full' }}&quot;
+
+          # Set command based on analysis type
+          case &quot;$ANALYSIS_TYPE&quot; in
+            &quot;security-only&quot;)
+              ARGS=&quot;--analyzer security&quot;
+              ;;
+            &quot;performance-only&quot;) 
+              ARGS=&quot;--analyzer performance&quot;
+              ;;
+            *)
+              ARGS=&quot;&quot;  # Full analysis
+              ;;
+          esac
+
+          # Run analysis with comprehensive options
+          slowql --non-interactive \
+            --input-file . \
+            $ARGS \
+            --export html csv json \
+            --out ./reports/ \
+            --verbose \
+            --config .slowql.toml || true
+
+      - name: Upload reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: slowql-reports-${{ matrix.python-version }}
+          path: |
+            reports/
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Quality Gate - Critical Issues
+        run: |
+          python - &lt;&lt;'PY'
+          import json, glob, sys, os
+
+          # Find the most recent comprehensive report
+          report_files = glob.glob('reports/slowql_results_*.json')
+          if not report_files:
+              print(&quot;⚠️  No report files found - this may be expected for repos without SQL files&quot;)
+              sys.exit(0)
+
+          latest_report = max(report_files)
+          data = json.load(open(latest_report, encoding='utf-8'))
+
+          critical_count = data[&quot;statistics&quot;][&quot;by_severity&quot;].get(&quot;CRITICAL&quot;, 0)
+          high_count = data[&quot;statistics&quot;][&quot;by_severity&quot;].get(&quot;HIGH&quot;, 0)
+          total_issues = data[&quot;statistics&quot;][&quot;get&quot;](&quot;total_issues&quot;, 0)
+          health_score = data[&quot;statistics&quot;].get(&quot;health_score&quot;, 100)
+
+          print(f&quot;📊 Analysis Results:&quot;)
+          print(f&quot;   Total Issues: {total_issues}&quot;)
+          print(f&quot;   Critical: {critical_count}&quot;)
+          print(f&quot;   High: {high_count}&quot;)
+          print(f&quot;   Health Score: {health_score}/100&quot;)
+
+          # Quality gate logic
+          if critical_count &gt; 0:
+              print(f&quot;❌ FAILED: Found {critical_count} CRITICAL SQL issues!&quot;)
+              print(&quot;🚨 Critical issues must be fixed before merging&quot;)
+              sys.exit(1)
+          elif high_count &gt; 5:
+              print(f&quot;⚠️  WARNING: Found {high_count} HIGH severity SQL issues (threshold: 5)&quot;)
+              print(&quot;Consider addressing high severity issues before merging&quot;)
+              # Don't fail the build, but warn
+          elif health_score &lt; 70:
+              print(f&quot;⚠️  WARNING: Health score {health_score}/100 is below recommended threshold (70)&quot;)
+          else:
+              print(&quot;✅ Quality gate passed&quot;)
+
+          PY
+
+      - name: Comment PR with Results
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+
+            // Find the latest report
+            const reportsDir = 'reports';
+            let reportContent = '';
+
+            try {
+              const files = fs.readdirSync(reportsDir);
+              const htmlFiles = files.filter(f =&gt; f.endsWith('.html'));
+
+              if (htmlFiles.length &gt; 0) {
+                const latestReport = htmlFiles.sort().pop();
+                const reportPath = path.join(reportsDir, latestReport);
+                reportContent = fs.readFileSync(reportPath, 'utf8');
+
+                // Extract summary from HTML or create a summary
+                const summary = `## 🔍 SlowQL Analysis Results
+
+                📊 **Latest Analysis:** ${new Date().toLocaleString()}
+                📁 **Reports:** Available in the [workflow artifacts](${context.payload.pull_request.html_url}/checks)
+
+                ✅ *Full detailed report attached as workflow artifact*`;
+
+                await github.rest.issues.createComment({
+                  issue_number: context.issue.number,
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  body: summary
+                });
+              }
+            } catch (error) {
+              console.log('Could not create PR comment:', error.message);
+            }
+
+  slowql-security-audit:
+    name: Security Audit
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule' || github.event.inputs.analysis_type == 'security-only'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install SlowQL
+        run: pip install slowql[dev]
+
+      - name: Run Security Analysis
+        run: |
+          slowql --non-interactive \
+            --input-file . \
+            --analyzer security \
+            --export json \
+            --out ./security-report.json \
+            --config .slowql.toml
+
+      - name: Upload Security Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: slowql-security-audit
+          path: security-report.json
+
+      - name: Security Alert on Critical Issues
+        if: always()
+        run: |
+          python - &lt;&lt;'PY'
+          import json, sys
+
+          try:
+            with open('security-report.json', 'r') as f:
+              data = json.load(f)
+
+            critical_count = data[&quot;statistics&quot;][&quot;by_severity&quot;].get(&quot;CRITICAL&quot;, 0)
+
+            if critical_count &gt; 0:
+              print(f&quot;🚨 SECURITY ALERT: {critical_count} critical security issues found!&quot;)
+              # In a real scenario, you might send notifications here
+              sys.exit(1)
+            else:
+              print(&quot;✅ No critical security issues found&quot;)
+          except FileNotFoundError:
+            print(&quot;No security report found - no SQL files analyzed&quot;)
+          except Exception as e:
+            print(f&quot;Error reading security report: {e}&quot;)
+          PY
+
+  slowql-performance-benchmark:
+    name: Performance Benchmark
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Install SlowQL
+        run: pip install slowql[dev]
+
+      - name: Performance Analysis
+        run: |
+          # Analyze current changes
+          slowql --non-interactive \
+            --input-file . \
+            --analyzer performance \
+            --export json \
+            --out ./performance-current.json \
+            --verbose
+
+          # Compare with base branch if possible
+          if [ &quot;${{ github.event.pull_request.base.sha }}&quot; != &quot;&quot; ]; then
+            git checkout &quot;${{ github.event.pull_request.base.sha }}&quot;
+            slowql --non-interactive \
+              --input-file . \
+              --analyzer performance \
+              --export json \
+              --out ./performance-base.json
+            git checkout &quot;${{ github.event.head.sha }}&quot;
+          fi
+
+      - name: Upload Performance Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: slowql-performance-benchmark
+          path: |
+            performance-*.json
 </code></pre>
 <hr />
-<h2 id="sample-sql-file">📦 Sample SQL File</h2>
-<p>Include a file like <code>sample.sql</code> in your repo:</p>
-<pre><code class="language-code">SELECT * FROM users WHERE email LIKE '%@gmail.com';  
+<h2 id="repository-structure">📂 Repository Structure</h2>
+<p>Include the following files in your repository:</p>
+<h3 id="slowqltoml-configuration"><code>.slowql.toml</code> (Configuration)</h3>
+<pre><code class="language-toml">[general]
+non_interactive = true
+verbose_output = false
+
+[rule_categories]
+security = true
+performance = true
+cost = true
+reliability = true
+quality = true
+
+[rules.sql_injection]
+enabled = true
+severity = &quot;critical&quot;
+
+[rules.select_star]
+enabled = true
+severity = &quot;medium&quot;
+</code></pre>
+<h3 id="sample-sql-files">Sample SQL Files</h3>
+<pre><code class="language-sql">-- sample.sql
+SELECT * FROM users WHERE email LIKE '%@gmail.com';
+UPDATE users SET password = 'secret123' WHERE id = 1;
 DELETE FROM orders;
 </code></pre>
 <hr />
-<h2 id="exported-results">📤 Exported Results</h2>
-<p>The workflow will generate <code>results.json</code> containing all detector findings. You can upload it as an artifact or parse it in later steps.</p>
+<h2 id="workflow-customization">🔧 Workflow Customization</h2>
+<h3 id="environment-variables">Environment Variables</h3>
+<pre><code class="language-yaml">env:
+  SLOWQL_VERSION: &quot;latest&quot;    # or specific version &quot;1.3.0&quot;
+  PYTHON_VERSION: &quot;3.12&quot;      # Python version to use
+  ANALYSIS_PATH: &quot;sql/&quot;       # Directory containing SQL files
+  REPORT_RETENTION: 30        # Days to keep reports
+</code></pre>
+<h3 id="trigger-conditions">Trigger Conditions</h3>
+<pre><code class="language-yaml">on:
+  push:
+    branches: [ main, develop ]
+    paths:
+      - 'sql/**'
+      - '**/*.sql'
+      - '.github/workflows/**'
+  pull_request:
+    branches: [ main ]
+    paths:
+      - 'sql/**'
+      - '**/*.sql'
+</code></pre>
+<h3 id="job-dependencies">Job Dependencies</h3>
+<pre><code class="language-yaml">jobs:
+  slowql-analysis:
+    # ... analysis steps
+
+  slowql-notification:
+    needs: slowql-analysis
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Notify team
+        run: |
+          echo &quot;Analysis completed with status: ${{ needs.slowql-analysis.result }}&quot;
+</code></pre>
+<hr />
+<h2 id="report-integration">📊 Report Integration</h2>
+<h3 id="github-pages-integration">GitHub Pages Integration</h3>
+<pre><code class="language-yaml">- name: Deploy to GitHub Pages
+  if: github.ref == 'refs/heads/main'
+  uses: peaceiris/actions-gh-pages@v3
+  with:
+    github_token: ${{ secrets.GITHUB_TOKEN }}
+    publish_dir: ./reports
+</code></pre>
+<h3 id="slack-integration">Slack Integration</h3>
+<pre><code class="language-yaml">- name: Notify Slack
+  if: failure()
+  uses: 8398a7/action-slack@v3
+  with:
+    status: failure
+    text: 'SlowQL analysis failed'
+  env:
+    SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK }}
+</code></pre>
 <hr />
 <h2 id="best-practices">🧠 Best Practices</h2>
+<h3 id="1-workflow-organization">1. Workflow Organization</h3>
 <ul>
-<li>Use <code>--no-intro</code> to keep logs clean  </li>
-<li>Use <code>--fast</code> for quicker CI runs  </li>
-<li>Export to JSON for machine‑readable output  </li>
-<li>Add <code>slowql.yml</code> to all SQL‑heavy repos  </li>
+<li><strong>Separate concerns</strong>: Use different jobs for different analysis types</li>
+<li><strong>Fail fast</strong>: Use <code>fail-fast: false</code> for comprehensive testing</li>
+<li><strong>Cache dependencies</strong>: Improve build times with pip caching</li>
+<li><strong>Artifact retention</strong>: Keep reports for debugging and compliance</li>
 </ul>
+<h3 id="2-quality-gates">2. Quality Gates</h3>
+<pre><code class="language-python"># Example quality gate logic
+def check_quality_gate(report_data):
+    critical = report_data[&quot;statistics&quot;][&quot;by_severity&quot;].get(&quot;CRITICAL&quot;, 0)
+    high = report_data[&quot;statistics&quot;][&quot;by_severity&quot;].get(&quot;HIGH&quot;, 0)
+    health_score = report_data[&quot;statistics&quot;].get(&quot;health_score&quot;, 100)
+
+    if critical &gt; 0:
+        return &quot;FAIL&quot;, f&quot;{critical} critical issues found&quot;
+    elif high &gt; 5:
+        return &quot;WARN&quot;, f&quot;{high} high severity issues (threshold: 5)&quot;
+    elif health_score &lt; 70:
+        return &quot;WARN&quot;, f&quot;Health score {health_score}/100 below threshold&quot;
+    else:
+        return &quot;PASS&quot;, &quot;Quality gate passed&quot;
+</code></pre>
+<h3 id="3-security-considerations">3. Security Considerations</h3>
+<ul>
+<li><strong>Secret management</strong>: Use GitHub Secrets for sensitive data</li>
+<li><strong>Least privilege</strong>: Grant minimal required permissions</li>
+<li><strong>Code scanning</strong>: Integrate with GitHub Advanced Security</li>
+<li><strong>Dependency updates</strong>: Keep SlowQL version updated</li>
+</ul>
+<h3 id="4-performance-optimization">4. Performance Optimization</h3>
+<pre><code class="language-yaml">strategy:
+  matrix:
+    include:
+      - python-version: &quot;3.11&quot;
+        slowql-version: &quot;1.2.0&quot;
+      - python-version: &quot;3.12&quot;  
+        slowql-version: &quot;latest&quot;
+</code></pre>
 <hr />
 <h2 id="related-examples">🔗 Related Examples</h2>
 <ul>
-<li><a href="../basic-usage/">Basic Usage</a>  </li>
-<li><a href="../gitlab-ci/">GitLab CI</a>  </li>
-<li><a href="../jenkins/">Jenkins</a>  </li>
-<li><a href="../pre-commit-hook/">Pre-Commit Hook</a>  </li>
+<li><a href="../basic-usage/">Basic Usage</a></li>
+<li><a href="../docker-podman-integration/">Docker &amp; Podman Integration</a></li>
+<li><a href="../gitlab-ci/">GitLab CI</a></li>
+<li><a href="../jenkins/">Jenkins</a></li>
+<li><a href="../pre-commit-hook/">Pre-Commit Hook</a></li>
+</ul>
+<hr />
+<h2 id="additional-resources">📚 Additional Resources</h2>
+<ul>
+<li><a href="https://docs.github.com/en/actions">GitHub Actions Documentation</a></li>
+<li><a href="https://docs.github.com/en/actions/using-workflows">Workflow Syntax Reference</a></li>
+<li><a href="https://docs.github.com/en/actions/using-workflows/reusing-workflows">Reusable Workflows</a></li>
+<li><a href="https://docs.github.com/en/actions/deployment/targeting-different-environments/using-environments-for-deployment">Environment Protection Rules</a></li>
 </ul>
 
 
