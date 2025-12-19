@@ -732,7 +732,7 @@ Apache 2.0 — see [LICENSE](LICENSE) file for details.
 - 📚 **Documentation**: [https://slowql.dev/docs](https://slowql.dev/docs)
 - 🐛 **Issues**: [GitHub Issues](https://github.com/makroumi/slowql/issues)
 - 💬 **Discussions**: [GitHub Discussions](https://github.com/makroumi/slowql/discussions)
-- 📧 **Email**: contact@makroumi.dev
+- 📧 **Email**: elmehdi.makroumi@gmail.com
 
 ## Star History
 

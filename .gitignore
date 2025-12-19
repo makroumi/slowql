@@ -1,36 +1,70 @@
+# Virtual environments
 .venv
+venv/
+ENV/
+env/
 
+# Python
 __pycache__/
-*.pyc
-.coverage
-*.egg-info/
-sql_analysis_*.json
-.pytest_cache/
-
-# Generated files
-htmlcov/
-dist/
+*.py[cod]
+*$py.class
+*.so
+.Python
 build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
 *.egg-info/
-.coverage
+.installed.cfg
+*.egg
+MANIFEST
+
+# Testing
 .pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Type checking
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Linting
+.ruff_cache/
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Project specific
+sql_analysis_*.json
 reports/
 *.html
 *.json
 *.csv
-
-# Generated
-htmlcov/
-report/
-reports/
-.coverage
-*.egg-info/
-__pycache__/
-
-.coverage
-.pytest_cache/
-htmlcov/
-__pycache__/
 *.xml
-.mypy_cache/
-.ruff_cache/

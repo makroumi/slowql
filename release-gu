@@ -1,0 +1,557 @@
+# DockerHub Release Process Guide
+
+This guide provides comprehensive instructions for releasing SlowQL to DockerHub, including account setup, authentication, building, tagging, and pushing images.
+
+## Table of Contents
+- [Prerequisites](#prerequisites)
+- [DockerHub Account Setup](#dockerhub-account-setup)
+- [Authentication Methods](#authentication-methods)
+- [Building and Tagging Images](#building-and-tagging-images)
+- [Pushing to DockerHub](#pushing-to-dockerhub)
+- [Creating Releases and Tags](#creating-releases-and-tags)
+- [Verification and Testing](#verification-and-testing)
+- [Troubleshooting](#troubleshooting)
+
+## Prerequisites
+
+Before starting the DockerHub release process, ensure you have:
+- Docker installed and running
+- A GitHub repository with SlowQL source code
+- Command-line access to your system
+- Basic understanding of Docker concepts
+- Administrative access to the SlowQL GitHub repository
+
+## DockerHub Account Setup
+
+### Step 1: Create DockerHub Account
+```bash
+# Visit https://hub.docker.com/
+# Click "Sign Up" and create an account with:
+# - Username: makroumi (or your preferred username)
+# - Email: contact@makroumi.dev
+# - Password: [secure password]
+```
+
+### Step 2: Verify Email and Complete Profile
+```bash
+# Check your email for verification link
+# Complete profile information
+# Enable 2FA (recommended)
+```
+
+### Step 3: Create Repository
+```bash
+# Go to DockerHub dashboard
+# Click "Create Repository"
+# Repository name: slowql
+# Description: "Next-generation SQL analyzer: Security, Performance, Compliance, Cost optimization"
+# Set to Public (or Private if preferred)
+# Click "Create"
+```
+
+### Step 4: Configure Repository Settings
+```bash
+# In repository settings:
+# - Add description and keywords
+# - Set up webhooks if needed
+# - Configure build settings (optional)
+# - Add tags and documentation links
+```
+
+## Authentication Methods
+
+### Method 1: DockerHub CLI Token (Recommended)
+
+#### Step 1: Generate Access Token
+```bash
+# Go to DockerHub Account Settings
+# Click "Security" → "Access Tokens"
+# Click "New Access Token"
+# Token name: "SlowQL Release Token"
+# Permissions: Read, Write, Delete
+# Click "Generate Token"
+# Copy and save the token securely
+```
+
+#### Step 2: Login with Token
+```bash
+# Login using the token
+docker login -u makroumi
+
+# When prompted for password, paste your access token
+# You should see: "Login Succeeded"
+```
+
+#### Step 3: Verify Authentication
+```bash
+# Check current user
+docker info | grep -i username
+
+# Verify access to your repository
+docker search makroumi/slowql
+```
+
+### Method 2: Personal Access Token (Alternative)
+
+#### Step 1: Generate PAT
+```bash
+# Same as above but use existing DockerHub PAT
+# Ensure it has appropriate permissions
+```
+
+#### Step 2: Login with PAT
+```bash
+# Same authentication process as token method
+docker login -u makroumi
+```
+
+### Method 3: GitHub Actions (CI/CD)
+
+#### Set Up GitHub Secrets
+```bash
+# In your GitHub repository:
+# Go to Settings → Secrets and variables → Actions
+# Add secrets:
+# DOCKERHUB_USERNAME: makroumi
+# DOCKERHUB_TOKEN: [your access token]
+```
+
+## Building and Tagging Images
+
+### Step 1: Prepare Build Environment
+```bash
+# Clone the repository
+git clone https://github.com/makroumi/slowql.git
+cd slowql
+
+# Verify you have the latest code
+git pull origin main
+git checkout main
+
+# Check current version
+grep "version" pyproject.toml | head -1
+# Output: version = "2.0.0"
+```
+
+### Step 2: Build Local Image
+```bash
+# Build the image with latest tag
+docker build \
+  --tag slowql:latest \
+  --build-arg VERSION=2.0.0 \
+  .
+
+# Build with specific version tag
+docker build \
+  --tag slowql:2.0.0 \
+  --build-arg VERSION=2.0.0 \
+  .
+
+# Build multiple tags at once
+docker build \
+  --tag slowql:latest \
+  --tag slowql:2.0.0 \
+  --build-arg VERSION=2.0.0 \
+  .
+```
+
+### Step 3: Multi-Architecture Build
+```bash
+# Enable buildx for multi-architecture builds
+docker buildx create --use
+
+# Build for multiple platforms
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  --tag slowql:latest \
+  --tag slowql:2.0.0 \
+  --build-arg VERSION=2.0.0 \
+  --load \
+  .
+```
+
+### Step 4: Test the Built Image
+```bash
+# Test the image locally
+docker run --rm slowql:latest slowql --help
+
+# Test with sample analysis
+echo "SELECT * FROM users WHERE id = 1;" | \
+docker run -i slowql:latest slowql
+
+# Test export functionality
+docker run --rm \
+  -v $(pwd):/work \
+  -w /work \
+  slowql:latest \
+  slowql --input-file test_queries.sql --export html
+```
+
+## Pushing to DockerHub
+
+### Step 1: Tag Images for DockerHub
+```bash
+# Tag images with DockerHub repository
+docker tag slowql:latest makroumi/slowql:latest
+docker tag slowql:latest makroumi/slowql:2.0.0
+docker tag slowql:latest makroumi/slowql:v2.0.0
+
+# For development builds
+docker tag slowql:latest makroumi/slowql:dev
+```
+
+### Step 2: Push to DockerHub
+```bash
+# Push the latest tag
+docker push makroumi/slowql:latest
+
+# Push versioned tags
+docker push makroumi/slowql:2.0.0
+docker push makroumi/slowql:v2.0.0
+
+# Push all tags
+docker push makroumi/slowql --all-tags
+```
+
+### Step 3: Verify Push Success
+```bash
+# Check if images are available on DockerHub
+docker search makroumi/slowql
+
+# Pull the image to verify
+docker pull makroumi/slowql:latest
+
+# Verify image details
+docker images makroumi/slowql
+```
+
+## Creating Releases and Tags
+
+### Step 1: Create Git Tag
+```bash
+# Create annotated tag for release
+git tag -a v2.0.0 -m "Release version 2.0.0"
+
+# Push tag to GitHub
+git push origin v2.0.0
+
+# List tags to verify
+git tag -l
+```
+
+### Step 2: Create GitHub Release
+```bash
+# Using GitHub CLI (if installed)
+gh release create v2.0.0 \
+  --title "SlowQL v2.0.0" \
+  --notes "Release version 2.0.0 with new features and improvements" \
+  --generate-notes
+
+# Or use the web interface:
+# Go to https://github.com/makroumi/slowql/releases/new
+# Tag version: v2.0.0
+# Release title: SlowQL v2.0.0
+# Description: [Add release notes]
+# Check "This is a pre-release" if applicable
+# Click "Publish release"
+```
+
+### Step 3: Update README with DockerHub Badges
+```bash
+# Add DockerHub badges to README.md
+# Replace the existing Docker section with updated badges:
+
+# In README.md, add this badge near the top:
+[![Docker](https://img.shields.io/docker/v/makroumi/slowql?logo=docker&label=docker)](https://hub.docker.com/r/makroumi/slowql)
+
+# Update the Docker section with usage examples:
+## Docker Usage
+
+### Pull and Run
+```bash
+# Latest version
+docker run --rm makroumi/slowql slowql --help
+
+# Specific version
+docker run --rm makroumi/slowql:2.0.0 slowql --help
+
+# With volume mount for analysis
+docker run --rm \
+  -v $(pwd):/work \
+  -w /work \
+  makroumi/slowql:latest \
+  slowql --input-file queries.sql
+```
+```
+
+### Step 4: Verify Release
+```bash
+# Check GitHub release page
+open https://github.com/makroumi/slowql/releases/tag/v2.0.0
+
+# Verify DockerHub repository
+open https://hub.docker.com/r/makroumi/slowql
+
+# Test the release by pulling and running
+docker pull makroumi/slowql:2.0.0
+docker run --rm makroumi/slowql:2.0.0 slowql --version
+```
+
+## Verification and Testing
+
+### Step 1: Automated Testing
+```bash
+# Create a test script to verify the release
+cat > test_release.sh << 'EOF'
+#!/bin/bash
+set -e
+
+echo "Testing SlowQL Docker release..."
+
+# Test 1: Pull image
+echo "✓ Pulling image..."
+docker pull makroumi/slowql:2.0.0
+
+# Test 2: Check version
+echo "✓ Checking version..."
+docker run --rm makroumi/slowql:2.0.0 slowql --version
+
+# Test 3: Help command
+echo "✓ Testing help command..."
+docker run --rm makroumi/slowql:2.0.0 slowql --help > /dev/null
+
+# Test 4: Basic analysis
+echo "✓ Testing basic analysis..."
+echo "SELECT * FROM test" | \
+docker run -i makroumi/slowql:2.0.0 slowql > /dev/null
+
+# Test 5: Export functionality
+echo "✓ Testing export..."
+mkdir -p test_reports
+docker run --rm \
+  -v $(pwd):/work \
+  -w /work \
+  makroumi/slowql:2.0.0 \
+  slowql --input-file test_queries.sql --export json
+
+echo "✓ All tests passed!"
+EOF
+
+chmod +x test_release.sh
+./test_release.sh
+```
+
+### Step 2: Cross-Platform Testing
+```bash
+# Test on different architectures (if available)
+# Test on Linux (amd64)
+docker run --rm makroumi/slowql:2.0.0 slowql --version
+
+# Test on ARM64 (if available)
+docker run --rm --platform linux/arm64 makroumi/slowql:2.0.0 slowql --version
+```
+
+### Step 3: Performance Testing
+```bash
+# Test with larger SQL files
+time docker run --rm \
+  -v $(pwd)/tests:/work \
+  -w /work \
+  makroumi/slowql:2.0.0 \
+  slowql --input-file large_test.sql --non-interactive
+```
+
+## Automation Scripts
+
+### Step 1: Create Release Script
+```bash
+cat > release_dockerhub.sh << 'EOF'
+#!/bin/bash
+set -e
+
+VERSION=${1:-latest}
+DOCKERHUB_USERNAME=${DOCKERHUB_USERNAME:-makroumi}
+IMAGE_NAME="$DOCKERHUB_USERNAME/slowql"
+
+echo "🚀 Releasing SlowQL $VERSION to DockerHub"
+
+# Get version from command line or pyproject.toml
+if [ "$VERSION" = "latest" ]; then
+    VERSION=$(grep "version" pyproject.toml | head -1 | sed 's/version = "\(.*\)"/\1/')
+fi
+
+echo "📦 Building Docker image for version $VERSION"
+
+# Build image
+docker build \
+  --tag slowql:$VERSION \
+  --build-arg VERSION=$VERSION \
+  .
+
+# Tag for DockerHub
+docker tag slowql:$VERSION $IMAGE_NAME:$VERSION
+docker tag slowql:$VERSION $IMAGE_NAME:latest
+
+echo "🔐 Logging in to DockerHub"
+docker login -u $DOCKERHUB_USERNAME
+
+echo "📤 Pushing to DockerHub"
+docker push $IMAGE_NAME:$VERSION
+docker push $IMAGE_NAME:latest
+
+echo "✅ Release completed successfully!"
+echo "🔗 Image available at: https://hub.docker.com/r/$IMAGE_NAME"
+EOF
+
+chmod +x release_dockerhub.sh
+```
+
+### Step 2: Use Release Script
+```bash
+# Release specific version
+./release_dockerhub.sh 2.0.0
+
+# Release latest (from pyproject.toml)
+./release_dockerhub.sh latest
+```
+
+## Troubleshooting
+
+### Common Issues and Solutions
+
+#### 1. Authentication Failures
+```bash
+# Check if you're logged in
+docker login
+
+# Re-authenticate if needed
+docker logout
+docker login -u makroumi
+
+# Verify token permissions
+# Token should have Read, Write, Delete permissions
+```
+
+#### 2. Build Failures
+```bash
+# Check Docker build logs
+docker build --no-cache --progress=plain .
+
+# Verify Dockerfile syntax
+docker build --dry-run .
+
+# Check available disk space
+docker system df
+```
+
+#### 3. Push Permission Errors
+```bash
+# Verify repository permissions
+# Ensure your DockerHub user has write access to the repository
+# Check if repository is private and you have access
+
+# Verify you're pushing to the correct repository
+docker images | grep slowql
+```
+
+#### 4. Multi-Architecture Build Issues
+```bash
+# Check buildx availability
+docker buildx version
+
+# Create buildx instance if missing
+docker buildx create --name mybuilder
+
+# Use specific builder
+docker buildx use mybuilder
+```
+
+#### 5. Image Size Issues
+```bash
+# Check image size
+docker images slowql
+
+# Optimize Dockerfile if needed
+# Remove unnecessary packages
+# Use multi-stage builds
+# Clean up cache
+```
+
+### Monitoring and Maintenance
+
+#### 1. Monitor Repository Health
+```bash
+# Check DockerHub repository stats
+open https://hub.docker.com/r/makroumi/slowql/settings
+
+# Monitor pull counts and usage
+# Review and respond to issues and feedback
+```
+
+#### 2. Regular Maintenance
+```bash
+# Update base images regularly
+# Scan for vulnerabilities
+docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+  aquasec/trivy image makroumi/slowql:latest
+
+# Clean up old images (except latest)
+docker images | grep makroumi/slowql | grep -v latest | awk '{print $3}' | xargs -r docker rmi
+```
+
+#### 3. Security Best Practices
+```bash
+# Use specific tags instead of :latest in production
+# Regularly update base images
+# Scan for vulnerabilities
+# Use minimal base images
+# Run containers as non-root user
+```
+
+## Advanced Features
+
+### Step 1: Set Up Automated Builds
+```bash
+# In DockerHub repository settings:
+# Go to "Builds" tab
+# Set up automated builds from GitHub
+# Configure build rules for tags and branches
+# Set build context and Dockerfile location
+```
+
+### Step 2: Configure Webhooks
+```bash
+# Set up webhooks for CI/CD integration
+# Configure notifications for builds and pushes
+# Integrate with Slack or other notification systems
+```
+
+### Step 3: Use BuildKit for Performance
+```bash
+# Enable BuildKit for faster builds
+export DOCKER_BUILDKIT=1
+
+# Build with BuildKit features
+docker build \
+  --secret id=PYPI_TOKEN,src=$HOME/.pypi_token \
+  --tag slowql:latest \
+  .
+```
+
+## Next Steps
+
+After successfully releasing to DockerHub:
+
+1. **Set Up GitHub Actions**: Automate the release process
+2. **Monitor Usage**: Track download counts and user feedback
+3. **Update Documentation**: Keep usage examples current
+4. **Plan Next Release**: Collect feedback and plan improvements
+
+## Additional Resources
+
+- [DockerHub Documentation](https://docs.docker.com/docker-hub/)
+- [Docker Build Reference](https://docs.docker.com/engine/reference/commandline/build/)
+- [Multi-Platform Builds](https://docs.docker.com/build/building/multi-platform/)
+- [Docker Security Best Practices](https://docs.docker.com/develop/security-best-practices/)
+
+For issues specific to DockerHub releases, please refer to the [project documentation](https://slowql.dev/docs) or open an issue on [GitHub](https://github.com/makroumi/slowql/issues).
