@@ -464,34 +464,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/docker-podman-integration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Docker & Podman Integration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../examples/github-actions/" class="md-nav__link">
         
   
@@ -2245,13 +2217,13 @@
 
 
 <h1 id="detectors-overview">Detectors Overview</h1>
-<p>SlowQL uses detectors to identify common performance, security, compliance, and reliability issues in SQL queries. Each detector focuses on a specific pattern that can cause inefficiency, risk, or regulatory violations. This section introduces the comprehensive detector catalog and links to detailed pages for each.</p>
+<p>SlowQL uses detectors to identify common performance and security issues in SQL queries. Each detector focuses on a specific pattern that can cause inefficiency or risk. This section introduces the detectors and links to detailed pages for each.</p>
 <hr />
 <h2 id="what-are-detectors">🔍 What Are Detectors?</h2>
 <p>Detectors are built‑in rules that scan queries for problematic constructs. They provide:</p>
 <ul>
 <li><strong>Name</strong> → Short identifier for the detector  </li>
-<li><strong>Category</strong> → Performance, Security, Compliance, Reliability, or Quality  </li>
+<li><strong>Category</strong> → Performance, Security, or Style  </li>
 <li><strong>Severity</strong> → Critical, High, Medium, Low  </li>
 <li><strong>Message</strong> → Explanation of the issue  </li>
 <li><strong>Suggestion</strong> → Recommended fix or alternative  </li>
@@ -2261,9 +2233,7 @@
 <ul>
 <li><strong>Performance Detectors</strong> → Catch slow patterns like <code>SELECT *</code>, missing indexes, or unbounded scans  </li>
 <li><strong>Security Detectors</strong> → Identify risks such as SQL injection or unsafe string concatenation  </li>
-<li><strong>Compliance Detectors</strong> → GDPR, HIPAA, PCI-DSS compliance violations and sensitive data handling</li>
-<li><strong>Reliability Detectors</strong> → Data integrity risks, catastrophic operations, and schema safety</li>
-<li><strong>Quality Detectors</strong> → Best practices, modern SQL syntax, and maintainability issues  </li>
+<li><strong>Style Detectors</strong> → Enforce best practices like consistent casing or avoiding deprecated syntax  </li>
 </ul>
 <hr />
 <h2 id="example-output">⚡ Example Output</h2>

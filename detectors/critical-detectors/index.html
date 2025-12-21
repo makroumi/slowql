@@ -464,34 +464,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../../examples/docker-podman-integration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Docker & Podman Integration
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../../examples/github-actions/" class="md-nav__link">
         
   
@@ -2251,17 +2223,7 @@
 <p>Detects unsafe string concatenation that could allow user input to alter query logic.</p>
 <pre><code class="language-Bash">SELECT * FROM users WHERE email = '&quot; + userInput + &quot;';
 </code></pre>
-<p><strong>Rule</strong>: <code>SEC-INJ-001</code> - Potential SQL Injection
-<strong>Suggestion</strong>: Use parameterized queries or prepared statements.</p>
-<p><strong>Sprint 1 Enhancement</strong>: 35 new OWASP SQLi patterns added covering:
-- Boolean-based blind SQL injection (AND 1=1, OR 1=1)
-- Union-based attacks (UNION SELECT, system table targeting)
-- Time-based attacks (SLEEP, BENCHMARK, pg_sleep)
-- Error-based attacks (CONVERT, CAST, XML functions)
-- Second-order SQL injection (stored procedures, triggers)
-- NoSQL injection (MongoDB, operator manipulation)
-- Advanced evasion (comment bypass, encoding obfuscation)</p>
-<p>See <a href="../owasp-security/">OWASP SQL Injection Patterns</a> for comprehensive coverage.</p>
+<p><strong>Suggestion</strong>: Use parameterized queries or prepared statements.</p>
 <hr />
 <h2 id="unbounded-delete-or-update">🧨 Unbounded DELETE or UPDATE</h2>
 <p>Flags destructive queries that affect entire tables without a WHERE clause.</p>
