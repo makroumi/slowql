@@ -5,6 +5,7 @@ Test rule classes.
 
 import pytest
 
+from slowql.core.autofixer import AutoFixer
 from slowql.core.models import Category, Dimension, Fix, FixConfidence, Location, Query, Severity
 from slowql.rules.base import ASTRule, PatternRule, Rule
 from slowql.rules.catalog import (
@@ -3368,4 +3369,146 @@ class TestRuleSuggestFix:
             location=Location(line=1, column=1),
         )
         assert rule.suggest_fix(query) is None
+
+
+class TestAutoFixer:
+    def setup_method(self) -> None:
+        self.autofixer = AutoFixer()
+
+    def test_apply_fix_exact_match(self) -> None:
+        query = "SELECT * FROM users WHERE name = NULL"
+        fix = Fix(
+            description="Use IS NULL",
+            original="= NULL",
+            replacement="IS NULL",
+            confidence=FixConfidence.SAFE,
+            rule_id="QUAL-NULL-001",
+        )
+        updated = self.autofixer.apply_fix(query, fix)
+        assert updated == "SELECT * FROM users WHERE name IS NULL"
+
+    def test_apply_fix_empty_original_no_change(self) -> None:
+        query = "SELECT * FROM users"
+        fix = Fix(
+            description="No-op",
+            original="",
+            replacement="something",
+            confidence=FixConfidence.SAFE,
+            rule_id="TEST-001",
+        )
+        assert self.autofixer.apply_fix(query, fix) == query
+
+    def test_apply_fix_missing_original_no_change(self) -> None:
+        query = "SELECT * FROM users"
+        fix = Fix(
+            description="No-op",
+            original="DELETE",
+            replacement="UPDATE",
+            confidence=FixConfidence.SAFE,
+            rule_id="TEST-002",
+        )
+        assert self.autofixer.apply_fix(query, fix) == query
+
+    def test_apply_all_fixes_deterministic(self) -> None:
+        query = "SELECT * FROM users WHERE a = NULL AND b = NULL"
+        fixes = [
+            Fix(
+                description="Fix first null comparison",
+                original="= NULL",
+                replacement="IS NULL",
+                confidence=FixConfidence.SAFE,
+                rule_id="QUAL-NULL-001",
+            ),
+            Fix(
+                description="Fix star usage",
+                original="SELECT *",
+                replacement="SELECT id",
+                confidence=FixConfidence.PROBABLE,
+                rule_id="PERF-SCAN-001",
+            ),
+        ]
+        updated = self.autofixer.apply_all_fixes(query, fixes)
+        assert updated == "SELECT id FROM users WHERE a IS NULL AND b = NULL"
+
+    def test_apply_all_fixes_no_cascade_from_new_text(self) -> None:
+        query = "SELECT x FROM users WHERE a = NULL"
+        fixes = [
+            Fix(
+                description="Turn = NULL into IS NULL",
+                original="= NULL",
+                replacement="IS NULL",
+                confidence=FixConfidence.SAFE,
+                rule_id="QUAL-NULL-001",
+            ),
+            Fix(
+                description="Would rewrite introduced text if cascading were allowed",
+                original="IS NULL",
+                replacement="IS NOT NULL",
+                confidence=FixConfidence.UNSAFE,
+                rule_id="TEST-CASCADE-001",
+            ),
+        ]
+        updated = self.autofixer.apply_all_fixes(query, fixes)
+        assert updated == "SELECT x FROM users WHERE a IS NULL"
+
+    def test_preview_fixes_returns_diff(self) -> None:
+        query = "SELECT * FROM users WHERE name = NULL\n"
+        fix = Fix(
+            description="Fix select and null comparison",
+            original="SELECT *",
+            replacement="SELECT id",
+            confidence=FixConfidence.PROBABLE,
+            rule_id="PERF-SCAN-001",
+        )
+        diff = self.autofixer.preview_fixes(query, [fix])
+        assert "--- original.sql" in diff
+        assert "+++ fixed.sql" in diff
+        assert "-SELECT * FROM users WHERE name = NULL" in diff
+        assert "+SELECT id FROM users WHERE name = NULL" in diff
+
+    def test_preview_fixes_empty_when_no_change(self) -> None:
+        query = "SELECT * FROM users"
+        fix = Fix(
+            description="No-op",
+            original="DELETE",
+            replacement="UPDATE",
+            confidence=FixConfidence.SAFE,
+            rule_id="TEST-003",
+        )
+        assert self.autofixer.preview_fixes(query, [fix]) == ""
+
+    def test_generate_fix_report(self) -> None:
+        fixes = [
+            Fix(
+                description="Safe fix",
+                original="= NULL",
+                replacement="IS NULL",
+                confidence=FixConfidence.SAFE,
+                rule_id="QUAL-NULL-001",
+                is_safe=True,
+            ),
+            Fix(
+                description="Probable fix",
+                original="SELECT *",
+                replacement="SELECT id",
+                confidence=FixConfidence.PROBABLE,
+                rule_id="PERF-SCAN-001",
+                is_safe=False,
+            ),
+            Fix(
+                description="Legacy numeric fix",
+                original="foo",
+                replacement="bar",
+                confidence=0.5,
+                rule_id="LEGACY-001",
+                is_safe=False,
+            ),
+        ]
+        report = self.autofixer.generate_fix_report(fixes)
+        assert report["total_fixes"] == 3
+        assert report["by_confidence"]["safe"] == 1
+        assert report["by_confidence"]["probable"] == 1
+        assert report["by_confidence"]["unsafe"] == 0
+        assert report["by_confidence"]["legacy_numeric"] == 1
+        assert len(report["fixes"]) == 3
 
