@@ -135,6 +135,7 @@ from slowql.rules.catalog import (
     SegregationOfDutiesRule,
     SelectStarInETLRule,
     SelectStarRule,
+    SelectWithoutFromRule,
     SensitiveDataInErrorOutputRule,
     ServerSideTemplateInjectionRule,
     SessionTimeoutNotEnforcedRule,
@@ -1503,6 +1504,26 @@ class TestHardcodedDateRule:
 
     def test_parameterized(self):
         assert not self.rule.check(_make_query("SELECT * FROM orders WHERE created_at = ?"))
+
+
+class TestSelectWithoutFromRule:
+    def setup_method(self):
+        self.rule = SelectWithoutFromRule()
+
+    def test_select_constant_without_from(self):
+        assert self.rule.check(_make_query("SELECT 1"))
+
+    def test_select_function_without_from(self):
+        assert self.rule.check(_make_query("SELECT NOW()"))
+
+    def test_select_string_without_from(self):
+        assert self.rule.check(_make_query("SELECT 'hello'"))
+
+    def test_select_with_from(self):
+        assert not self.rule.check(_make_query("SELECT * FROM users"))
+
+    def test_select_with_from_and_where(self):
+        assert not self.rule.check(_make_query("SELECT id FROM users WHERE active = 1"))
 
 
 class TestWildcardInColumnListRule:

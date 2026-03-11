@@ -30,7 +30,7 @@ class SelectWithoutFromRule(PatternRule):
     dimension = Dimension.QUALITY
     category = Category.QUAL_READABILITY
 
-    pattern = r"^\s*SELECT\s+.+(?<!\bFROM\b.+)$"
+    pattern = r"^\s*SELECT\b(?![\s\S]*\bFROM\b)[\s\S]+$"
     message_template = "SELECT without FROM detected — verify this is intentional: {match}"
 
     impact = (
