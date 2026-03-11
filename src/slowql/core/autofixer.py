@@ -125,12 +125,13 @@ class AutoFixer:
             return ""
 
         diff = unified_diff(
-            query.splitlines(keepends=True),
-            updated.splitlines(keepends=True),
+            query.splitlines(),
+            updated.splitlines(),
             fromfile="original.sql",
             tofile="fixed.sql",
+            lineterm="",
         )
-        return "".join(diff)
+        return "\n".join(diff)
 
     def generate_fix_report(self, applied: list[Fix]) -> dict[str, object]:
         """

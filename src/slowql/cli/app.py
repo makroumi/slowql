@@ -36,9 +36,10 @@ try:
 except ImportError:
     HAVE_READCHAR = False
 from slowql.cli.ui.animations import AnimatedAnalyzer, CyberpunkSQLEditor, MatrixRain
+from slowql.core.autofixer import AutoFixer
 from slowql.core.config import Config
 from slowql.core.engine import SlowQL
-from slowql.core.models import AnalysisResult, Severity
+from slowql.core.models import AnalysisResult, FixConfidence, Severity
 from slowql.reporters.console import ConsoleReporter
 from slowql.reporters.json_reporter import CSVReporter, HTMLReporter, JSONReporter
 
@@ -206,6 +207,56 @@ def _run_exports(result: AnalysisResult, formats: list[str], out_dir: Path) -> N
 
         except Exception as e:
             console.print(f"[red]✗ Failed to export {fmt}:[/red] {e}")
+
+
+def _preview_safe_fixes(engine: SlowQL, result: AnalysisResult) -> None:
+    """
+    Preview SAFE autofixes for rules that matched the analyzed queries.
+
+    This does not modify files or queries. It only prints a unified diff
+    for exact, conservative replacements.
+    """
+    autofixer = AutoFixer()
+    any_preview = False
+
+    for idx, query in enumerate(result.queries, start=1):
+        safe_fixes = []
+
+        for analyzer in engine.analyzers:
+            for rule in analyzer.rules:
+                try:
+                    rule_issues = analyzer.check_rule(query, rule, config=engine.config)
+                except Exception:
+                    # Analysis already surfaced rule failures; skip repeating them
+                    # during diff preview.
+                    continue
+
+                if not rule_issues:
+                    continue
+
+                fix = rule.suggest_fix(query)
+                if fix is not None and fix.confidence == FixConfidence.SAFE:
+                    safe_fixes.append(fix)
+
+        if not safe_fixes:
+            continue
+
+        diff = autofixer.preview_fixes(query.raw, safe_fixes)
+        if not diff:
+            continue
+
+        any_preview = True
+        console.print(
+            Panel(
+                diff,
+                title=f"[bold cyan]Autofix Preview — Query {idx}[/bold cyan]",
+                border_style="cyan",
+                box=box.ROUNDED,
+            )
+        )
+
+    if not any_preview:
+        console.print("[dim]No safe autofix preview available for the analyzed query/queries.[/dim]")
 
 
 def show_quick_actions_menu(
@@ -542,6 +593,36 @@ def _handle_sql_input(
     return sql_payload, False
 
 
+def _handle_result_output(
+    *,
+    session: SessionManager,
+    result: AnalysisResult,
+    formatter: ConsoleReporter,
+    engine: SlowQL,
+    show_diff: bool,
+    export_formats: list[str] | None,
+    out_dir: Path,
+    non_interactive: bool,
+) -> bool:
+    """
+    Handle result reporting, preview, optional exports, and loop continuation.
+
+    Returns:
+        True if analysis should continue, False if loop should stop.
+    """
+    session.add_analysis(result)
+    console.print("\n")
+    formatter.report(result)
+
+    if show_diff:
+        _preview_safe_fixes(engine, result)
+
+    if export_formats:
+        _run_exports(result, export_formats, out_dir)
+
+    return _handle_loop_end(non_interactive, result, out_dir, session)
+
+
 def _handle_loop_end(
     non_interactive: bool, result: AnalysisResult, out_dir: Path, session: SessionManager
 ) -> bool:
@@ -579,6 +660,7 @@ def run_analysis_loop(
     non_interactive: bool = False,
     enable_cache: bool = True,
     enable_comparison: bool = False,
+    show_diff: bool = False,
 ) -> None:
     """
     Main execution pipeline with interactive loop
@@ -620,14 +702,16 @@ def run_analysis_loop(
             if not result:
                 continue
 
-            session.add_analysis(result)
-            console.print("\n")
-            formatter.report(result)
-
-            if export_formats:
-                _run_exports(result, export_formats, out_dir)
-
-            if not _handle_loop_end(non_interactive, result, out_dir, session):
+            if not _handle_result_output(
+                session=session,
+                result=result,
+                formatter=formatter,
+                engine=engine,
+                show_diff=show_diff,
+                export_formats=export_formats,
+                out_dir=out_dir,
+                non_interactive=non_interactive,
+            ):
                 break
 
         except KeyboardInterrupt:
@@ -707,6 +791,11 @@ def build_argparser() -> argparse.ArgumentParser:
     output_group.add_argument(
         "--verbose", action="store_true", help="Enable verbose analyzer output"
     )
+    output_group.add_argument(
+        "--diff",
+        action="store_true",
+        help="Preview safe autofix diff without modifying files",
+    )
 
     # UI options
     ui_group = p.add_argument_group("UI Options")
@@ -751,6 +840,7 @@ def main(argv: list[str] | None = None) -> None:
         non_interactive=args.non_interactive,
         enable_cache=not args.no_cache,
         enable_comparison=args.compare,
+        show_diff=args.diff,
     )
 
 
