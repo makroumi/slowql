@@ -603,6 +603,7 @@ def _handle_result_output(
     export_formats: list[str] | None,
     out_dir: Path,
     non_interactive: bool,
+    export_session_history: bool,
 ) -> bool:
     """
     Handle result reporting, preview, optional exports, and loop continuation.
@@ -620,11 +621,21 @@ def _handle_result_output(
     if export_formats:
         _run_exports(result, export_formats, out_dir)
 
-    return _handle_loop_end(non_interactive, result, out_dir, session)
+    return _handle_loop_end(
+        non_interactive,
+        result,
+        out_dir,
+        session,
+        export_session_history=export_session_history,
+    )
 
 
 def _handle_loop_end(
-    non_interactive: bool, result: AnalysisResult, out_dir: Path, session: SessionManager
+    non_interactive: bool,
+    result: AnalysisResult,
+    out_dir: Path,
+    session: SessionManager,
+    export_session_history: bool = False,
 ) -> bool:
     """Handle end-of-loop logic: interactive menu or session summary."""
     if not non_interactive:
@@ -634,9 +645,11 @@ def _handle_loop_end(
         console.print("\n")
         session.display_summary()
 
-        # Auto-export in non-interactive mode, no prompt
-        if out_dir:
-            session_file = session.export_session()
+        # Export session only when explicitly requested
+        if export_session_history:
+            ensure_reports_dir(out_dir)
+            session_file = out_dir / f"slowql_session_{session.session_start.strftime('%Y%m%d_%H%M%S')}.json"
+            session.export_session(session_file)
             console.print(f"[green]✓ Session exported:[/green] {session_file}")
 
     return not non_interactive
@@ -661,6 +674,7 @@ def run_analysis_loop(
     enable_cache: bool = True,
     enable_comparison: bool = False,
     show_diff: bool = False,
+    export_session_history: bool = False,
 ) -> None:
     """
     Main execution pipeline with interactive loop
@@ -711,6 +725,7 @@ def run_analysis_loop(
                 export_formats=export_formats,
                 out_dir=out_dir,
                 non_interactive=non_interactive,
+                export_session_history=export_session_history,
             ):
                 break
 
@@ -796,6 +811,11 @@ def build_argparser() -> argparse.ArgumentParser:
         action="store_true",
         help="Preview safe autofix diff without modifying files",
     )
+    output_group.add_argument(
+        "--export-session",
+        action="store_true",
+        help="Export session history explicitly (especially for non-interactive mode)",
+    )
 
     # UI options
     ui_group = p.add_argument_group("UI Options")
@@ -841,6 +861,7 @@ def main(argv: list[str] | None = None) -> None:
         enable_cache=not args.no_cache,
         enable_comparison=args.compare,
         show_diff=args.diff,
+        export_session_history=args.export_session,
     )
 
 
