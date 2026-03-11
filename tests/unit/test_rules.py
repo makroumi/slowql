@@ -5,7 +5,7 @@ Test rule classes.
 
 import pytest
 
-from slowql.core.models import Category, Dimension, Location, Query, Severity
+from slowql.core.models import Category, Dimension, Fix, FixConfidence, Location, Query, Severity
 from slowql.rules.base import ASTRule, PatternRule, Rule
 from slowql.rules.catalog import (
     AlterTableDestructiveRule,
@@ -3303,3 +3303,69 @@ class TestTempTableNotCleanedUpRule:
     def test_cleaned_temp(self):
         sql = "CREATE TEMPORARY TABLE temp_users (id INT); DROP TABLE temp_users;"
         assert not self.rule.check(_make_query(sql))
+
+
+class TestFixConfidence:
+    def test_fix_confidence_values(self):
+        assert FixConfidence.SAFE.value == "safe"
+        assert FixConfidence.PROBABLE.value == "probable"
+        assert FixConfidence.UNSAFE.value == "unsafe"
+
+
+class TestFixDataclass:
+    def test_fix_defaults(self):
+        fix = Fix(description="Test fix")
+        assert fix.description == "Test fix"
+        assert fix.replacement == ""
+        assert fix.is_safe is False
+        assert fix.confidence == FixConfidence.UNSAFE
+        assert fix.original == ""
+        assert fix.rule_id == ""
+
+    def test_fix_to_dict_with_enum_confidence(self):
+        fix = Fix(
+            description="Replace equality with IS NULL",
+            replacement="IS NULL",
+            is_safe=True,
+            confidence=FixConfidence.SAFE,
+            original="= NULL",
+            rule_id="QUAL-NULL-001",
+        )
+        data = fix.to_dict()
+        assert data["description"] == "Replace equality with IS NULL"
+        assert data["replacement"] == "IS NULL"
+        assert data["is_safe"] is True
+        assert data["confidence"] == "safe"
+        assert data["original"] == "= NULL"
+        assert data["rule_id"] == "QUAL-NULL-001"
+
+    def test_fix_to_dict_with_float_confidence(self):
+        fix = Fix(
+            description="Legacy confidence compatibility",
+            confidence=0.85,
+        )
+        data = fix.to_dict()
+        assert data["confidence"] == 0.85
+
+
+class TestRuleSuggestFix:
+    class DummyRule(Rule):
+        id = "TEST-DUMMY-001"
+        name = "Dummy Rule"
+        description = "Dummy rule for testing"
+        severity = Severity.LOW
+        dimension = Dimension.QUALITY
+
+        def check(self, query: Query) -> list:
+            return []
+
+    def test_default_suggest_fix_returns_none(self):
+        rule = self.DummyRule()
+        query = Query(
+            raw="SELECT 1",
+            normalized="SELECT 1",
+            dialect="mysql",
+            location=Location(line=1, column=1),
+        )
+        assert rule.suggest_fix(query) is None
+
