@@ -322,6 +322,8 @@ class Fix:
         confidence: Confidence level of the fix.
         original: The original problematic SQL code.
         rule_id: ID of the rule that generated this fix.
+        start: Optional start offset for exact replacement.
+        end: Optional end offset for exact replacement.
     """
 
     description: str
@@ -330,6 +332,8 @@ class Fix:
     confidence: FixConfidence | float = FixConfidence.UNSAFE
     original: str = ""
     rule_id: str = ""
+    start: int | None = None
+    end: int | None = None
 
     def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary for serialization."""
@@ -340,6 +344,8 @@ class Fix:
             "confidence": self.confidence.value if isinstance(self.confidence, FixConfidence) else self.confidence,
             "original": self.original,
             "rule_id": self.rule_id,
+            "start": self.start,
+            "end": self.end,
         }
 
 

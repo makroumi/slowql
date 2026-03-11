@@ -40,11 +40,8 @@ class AutoFixer:
         """
         Apply a single fix to a query.
 
-        The fix is only applied if:
-        - fix.original is non-empty
-        - fix.original exists in query
-
-        Only the first occurrence is replaced.
+        If a span is provided, the fix is applied only to that exact slice.
+        Otherwise, the fixer falls back to conservative exact-text replacement.
 
         Args:
             query: Original SQL query text.
@@ -53,30 +50,33 @@ class AutoFixer:
         Returns:
             Updated query text if applied, otherwise original query text.
         """
-        if not fix.original:
-            return query
+        updated = query
 
-        if fix.original not in query:
-            return query
+        if fix.start is not None or fix.end is not None:
+            span_valid = (
+                fix.start is not None
+                and fix.end is not None
+                and 0 <= fix.start <= fix.end <= len(query)
+            )
+            if span_valid:
+                assert fix.start is not None
+                assert fix.end is not None
+                if not fix.original or query[fix.start:fix.end] == fix.original:
+                    updated = query[:fix.start] + fix.replacement + query[fix.end:]
+        elif fix.original and fix.original in query:
+            updated = query.replace(fix.original, fix.replacement, 1)
 
-        return query.replace(fix.original, fix.replacement, 1)
+        return updated
 
     def apply_all_fixes(self, query: str, fixes: list[Fix]) -> str:
         """
         Apply multiple fixes deterministically.
 
-        Fixes are applied in a stable order:
-        - longer original text first
-        - then by rule_id
-        - then by description
+        Span-based fixes are applied first, from right to left, so earlier
+        replacements do not shift the offsets of later ones.
 
-        A fix is skipped if:
-        - fix.original is empty
-        - fix.original was not present in the original query
-        - the target text is no longer present in the current updated query
-
-        This prevents a previously applied fix from introducing new text
-        that triggers a later fix unexpectedly.
+        Text-based fixes are then applied conservatively using the original
+        exact-text behavior.
 
         Args:
             query: Original SQL query text.
@@ -85,8 +85,45 @@ class AutoFixer:
         Returns:
             Updated query text.
         """
-        ordered = sorted(
-            fixes,
+        updated = query
+
+        span_fixes = [
+            fix
+            for fix in fixes
+            if fix.start is not None and fix.end is not None
+        ]
+        text_fixes = [
+            fix
+            for fix in fixes
+            if fix.start is None and fix.end is None
+        ]
+
+        occupied: list[tuple[int, int]] = []
+        ordered_spans = sorted(
+            span_fixes,
+            key=lambda f: (f.start, f.end),
+            reverse=True,
+        )
+
+        for fix in ordered_spans:
+            assert fix.start is not None
+            assert fix.end is not None
+
+            if fix.start < 0 or fix.end < fix.start or fix.end > len(query):
+                continue
+
+            if fix.original and query[fix.start:fix.end] != fix.original:
+                continue
+
+            overlaps = any(not (fix.end <= start or fix.start >= end) for start, end in occupied)
+            if overlaps:
+                continue
+
+            updated = updated[:fix.start] + fix.replacement + updated[fix.end:]
+            occupied.append((fix.start, fix.end))
+
+        ordered_text = sorted(
+            text_fixes,
             key=lambda f: (
                 -len(f.original or ""),
                 f.rule_id,
@@ -95,9 +132,7 @@ class AutoFixer:
         )
 
         original_query = query
-        updated = query
-
-        for fix in ordered:
+        for fix in ordered_text:
             if not fix.original:
                 continue
             if fix.original not in original_query:
