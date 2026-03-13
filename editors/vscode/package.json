@@ -48,12 +48,6 @@
             "type": "string"
           },
           "description": "Arguments passed to the SlowQL language server command"
-        },
-        "slowql.trace.server": {
-          "type": "string",
-          "enum": ["off", "messages", "verbose"],
-          "default": "off",
-          "description": "Trace level for the SlowQL language server"
         }
       }
     }

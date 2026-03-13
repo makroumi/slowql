@@ -20,7 +20,7 @@ export function activate(context: vscode.ExtensionContext) {
       outputChannel.appendLine("Restarting SlowQL language server...");
       try {
         await stopClient();
-        await startClient(context);
+        await startClient();
         vscode.window.showInformationMessage("SlowQL language server restarted.");
       } catch (err) {
         outputChannel.appendLine(`Restart failed: ${err}`);
@@ -31,12 +31,12 @@ export function activate(context: vscode.ExtensionContext) {
   context.subscriptions.push(restartCommand);
 
   // Initial start
-  startClient(context).catch((err) => {
+  startClient().catch((err) => {
     outputChannel.appendLine(`Initial startup failed: ${err}`);
   });
 }
 
-async function startClient(context: vscode.ExtensionContext) {
+async function startClient() {
   const config = vscode.workspace.getConfiguration("slowql");
   const enabled = config.get<boolean>("enable", true);
 

@@ -16,7 +16,6 @@ This extension provides the following settings under the `slowql` namespace:
 - `slowql.enable`: Enable/disable the SlowQL language server (default: `true`).
 - `slowql.command`: Command to launch the SlowQL language server (default: `"python"`).
 - `slowql.args`: Arguments passed to the SlowQL language server command (default: `["-m", "slowql.lsp.server"]`).
-- `slowql.trace.server`: Trace level for the SlowQL language server (default: `"off"`).
 
 ## Development / Local Testing
 
@@ -54,7 +53,7 @@ npm run compile
 
 ### Troubleshooting
 
-- Check the **Output** panel → **SlowQL Language Server** channel for server
+- Check the **Output** panel → **SlowQL** channel for server
   logs.
 - Make sure `python -m slowql.lsp.server` runs without errors in a terminal
   before launching the extension.
