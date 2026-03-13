@@ -9,10 +9,14 @@ real-time diagnostics for SQL files.
 - Starts the SlowQL LSP server (`python -m slowql.lsp.server`) via stdio.
 - Shows diagnostics in the **Problems** panel.
 
-## Current Scope
+## Configuration
 
-> **Diagnostics only.** Quick fixes, code actions, and sidebar/panel features
-> are planned for future iterations.
+This extension provides the following settings under the `slowql` namespace:
+
+- `slowql.enable`: Enable/disable the SlowQL language server (default: `true`).
+- `slowql.command`: Command to launch the SlowQL language server (default: `"python"`).
+- `slowql.args`: Arguments passed to the SlowQL language server command (default: `["-m", "slowql.lsp.server"]`).
+- `slowql.trace.server`: Trace level for the SlowQL language server (default: `"off"`).
 
 ## Development / Local Testing
 
