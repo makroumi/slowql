@@ -752,6 +752,8 @@
       
         
       
+        
+      
     
     
     
@@ -838,6 +840,34 @@
     
   
     Inline Suppression
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../usage/severity-overrides/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Severity Overrides
   
 
     
@@ -15119,6 +15149,9 @@ analysis:
     - reliability
   disabled_rules:                # Blacklist array
     - QUAL-STYLE-001             
+  severity_overrides:            # Rule-specific level overrides
+    PERF-SCAN-001: info
+    QUAL-NULL-001: critical
 
 schema:
   path: schemas/prod_schema.sql  # Enables schema validation queries (column limits)
@@ -15145,7 +15178,13 @@ cost:
 <h3 id="analysis"><code>analysis</code></h3>
 <p>Tunes the AST processor.
 - <strong><code>timeout_seconds</code></strong>: Because SQL parsing can hit algorithmic cliffs (e.g. 5,000 deep <code>IN</code> arrays), SlowQL will dynamically drop a query block if it exceeds this threshold to save CI minutes.
-- <strong><code>disabled_rules</code></strong>: A global blacklist for specific Rule IDs (e.g., <code>PERF-SCAN-001</code>) that your company doesn't care about enforcing.</p>
+- <strong><code>disabled_rules</code></strong>: A global blacklist for specific Rule IDs (e.g., <code>PERF-SCAN-001</code>) that your company doesn't care about enforcing.
+- <strong><code>severity_overrides</code></strong>: Customize the severity of specific rules on a per-project basis.
+  <code>yaml
+  analysis:
+    severity_overrides:
+      PERF-SCAN-001: info      # Downgrade to Info
+      QUAL-NULL-001: critical  # Upgrade to Critical</code></p>
 <h3 id="compliance-cost"><code>compliance</code> &amp; <code>cost</code></h3>
 <p>Configures the environment bounds for dimensions that require external realities (like specific frameworks or pricing tiers) to calculate accurate diagnostics.</p>
 <hr />
