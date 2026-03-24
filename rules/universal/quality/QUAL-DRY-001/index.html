@@ -3316,6 +3316,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -3743,6 +3747,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../QUAL-DBT-002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardcoded Schema (QUAL-DBT-002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../QUAL-TEST-003/" class="md-nav__link">
         
   
@@ -4059,6 +4091,34 @@
     
   
     Missing Primary Key (QUAL-SCHEMA-001)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUAL-DBT-001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Missing dbt Ref (QUAL-DBT-001)
   
 
     
@@ -14837,10 +14897,9 @@
 <strong>Scope</strong>: Universal (All Dialects)</p>
 <h2 id="description">Description</h2>
 <p>Duplicate conditions waste parser cycles and obscure intent. They often indicate a copy-paste error where the second condition should have been different (e.g., OR instead of AND, or a different value).</p>
-<p><strong>Rationale:</strong>
-Documentation for this rule's rationale is pending.</p>
+<p><strong>Rationale:</strong></p>
 <h2 id="remediation-fix">Remediation / Fix</h2>
-<p>Remove the duplicate condition. If both conditions were intended to filter on different values, verify the logic — AND with two equal conditions on the same column always reduces to a single condition.</p>
+<p>No automated or manual fix guidance is currently available for this rule.</p>
 
 
 

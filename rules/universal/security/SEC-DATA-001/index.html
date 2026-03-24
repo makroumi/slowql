@@ -3314,6 +3314,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -3672,6 +3676,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../quality/QUAL-DBT-002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardcoded Schema (QUAL-DBT-002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../quality/QUAL-TEST-003/" class="md-nav__link">
         
   
@@ -3988,6 +4020,34 @@
     
   
     Missing Primary Key (QUAL-SCHEMA-001)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quality/QUAL-DBT-001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Missing dbt Ref (QUAL-DBT-001)
   
 
     
@@ -14837,10 +14897,9 @@
 <strong>Scope</strong>: Universal (All Dialects)</p>
 <h2 id="description">Description</h2>
 <p>Attackers can export entire tables to attacker-readable locations, read sensitive OS files (e.g., /etc/passwd, configuration files), or execute arbitrary OS commands via COPY PROGRAM.</p>
-<p><strong>Rationale:</strong>
-Documentation for this rule's rationale is pending.</p>
+<p><strong>Rationale:</strong></p>
 <h2 id="remediation-fix">Remediation / Fix</h2>
-<p>Restrict FILE privilege in MySQL. Disable LOAD DATA INFILE via local_infile=0. Revoke COPY permissions in PostgreSQL. Use application-level export mechanisms with proper access controls instead of SQL-level file operations.</p>
+<p>No automated or manual fix guidance is currently available for this rule.</p>
 
 
 

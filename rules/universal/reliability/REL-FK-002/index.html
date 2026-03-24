@@ -3314,6 +3314,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -3672,6 +3676,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../quality/QUAL-DBT-002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardcoded Schema (QUAL-DBT-002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../quality/QUAL-TEST-003/" class="md-nav__link">
         
   
@@ -3988,6 +4020,34 @@
     
   
     Missing Primary Key (QUAL-SCHEMA-001)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quality/QUAL-DBT-001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Missing dbt Ref (QUAL-DBT-001)
   
 
     
@@ -14837,10 +14897,9 @@
 <strong>Scope</strong>: Universal (All Dialects)</p>
 <h2 id="description">Description</h2>
 <p>DELETE on parent table with ON DELETE CASCADE can wipe millions of child records in one statement. Often unintended and irreversible without backups.</p>
-<p><strong>Rationale:</strong>
-Documentation for this rule's rationale is pending.</p>
+<p><strong>Rationale:</strong></p>
 <h2 id="remediation-fix">Remediation / Fix</h2>
-<p>Check child records before DELETE: SELECT COUNT(*) FROM child_table WHERE parent_id = ?. Use soft delete (is_deleted flag). Disable CASCADE for critical tables. Require explicit confirmation.</p>
+<p>No automated or manual fix guidance is currently available for this rule.</p>
 
 
 

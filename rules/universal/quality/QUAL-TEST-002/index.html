@@ -3316,6 +3316,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -3674,6 +3678,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../QUAL-DBT-002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardcoded Schema (QUAL-DBT-002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../QUAL-TEST-003/" class="md-nav__link">
         
   
@@ -3990,6 +4022,34 @@
     
   
     Missing Primary Key (QUAL-SCHEMA-001)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../QUAL-DBT-001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Missing dbt Ref (QUAL-DBT-001)
   
 
     
@@ -14837,10 +14897,9 @@
 <strong>Scope</strong>: Universal (All Dialects)</p>
 <h2 id="description">Description</h2>
 <p>SQL does not guarantee row order without ORDER BY. Without it, pagination can return the same row on multiple pages or skip rows entirely, leading to UI bugs.</p>
-<p><strong>Rationale:</strong>
-Documentation for this rule's rationale is pending.</p>
+<p><strong>Rationale:</strong></p>
 <h2 id="remediation-fix">Remediation / Fix</h2>
-<p>Always add ORDER BY when using LIMIT/OFFSET. Ensure the sort key is unique (e.g., include ID) to guarantee stable sorting.</p>
+<p>No automated or manual fix guidance is currently available for this rule.</p>
 
 
 

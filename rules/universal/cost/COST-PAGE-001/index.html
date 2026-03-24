@@ -3385,6 +3385,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -3743,6 +3747,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../quality/QUAL-DBT-002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardcoded Schema (QUAL-DBT-002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../quality/QUAL-TEST-003/" class="md-nav__link">
         
   
@@ -4059,6 +4091,34 @@
     
   
     Missing Primary Key (QUAL-SCHEMA-001)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quality/QUAL-DBT-001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Missing dbt Ref (QUAL-DBT-001)
   
 
     
@@ -14837,10 +14897,9 @@
 <strong>Scope</strong>: Universal (All Dialects)</p>
 <h2 id="description">Description</h2>
 <p>OFFSET 10000 forces the database to scan and discard 10,000 rows. On page 1000, you pay for scanning 1 million rows. In cloud databases, this means IOPS charges for wasted work.</p>
-<p><strong>Rationale:</strong>
-Documentation for this rule's rationale is pending.</p>
+<p><strong>Rationale:</strong></p>
 <h2 id="remediation-fix">Remediation / Fix</h2>
-<p>Use keyset/cursor pagination: WHERE id &gt; last_seen_id ORDER BY id LIMIT 100. This maintains constant cost per page. For random access, use search indexing.</p>
+<p>No automated or manual fix guidance is currently available for this rule.</p>
 
 
 

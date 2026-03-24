@@ -3312,6 +3312,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -3670,6 +3674,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../../../../universal/quality/QUAL-DBT-002/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hardcoded Schema (QUAL-DBT-002)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../../../universal/quality/QUAL-TEST-003/" class="md-nav__link">
         
   
@@ -3986,6 +4018,34 @@
     
   
     Missing Primary Key (QUAL-SCHEMA-001)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../universal/quality/QUAL-DBT-001/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Missing dbt Ref (QUAL-DBT-001)
   
 
     
@@ -14839,10 +14899,9 @@
 <strong>Scope</strong>: Dialect Specific (Postgresql)</p>
 <h2 id="description">Description</h2>
 <p>An attacker who can SET search_path can place a trojan function or table in a schema that appears earlier in the path, hijacking queries that use unqualified names.</p>
-<p><strong>Rationale:</strong>
-Documentation for this rule's rationale is pending.</p>
+<p><strong>Rationale:</strong></p>
 <h2 id="remediation-fix">Remediation / Fix</h2>
-<p>Always use schema-qualified names (schema.table, schema.function). Restrict SET search_path permissions using REVOKE. Use ALTER ROLE ... SET search_path for controlled defaults.</p>
+<p>No automated or manual fix guidance is currently available for this rule.</p>
 
 
 
