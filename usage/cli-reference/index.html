@@ -10762,6 +10762,7 @@
 <h2 id="execution-syntax">Execution Syntax</h2>
 <p>The CLI accepts configuration via explicit flags or positional arguments.</p>
 <pre><code class="language-bash">slowql [OPTIONS] [FILE] [EXTRA_FILES...]
+slowql init [--dialect DIALECT] [--fail-on SEVERITY]
 </code></pre>
 <blockquote>
 <p>[!TIP]
@@ -10795,8 +10796,8 @@ If no file is provided, SlowQL will default to interactive mode unless <code>--n
 <td>None</td>
 </tr>
 <tr>
-<td><code>--init</code></td>
-<td>Launches an interactive wizard to scaffold a <code>slowql.yaml</code> configuration profile in the current directory.</td>
+<td><code>--init</code>, <code>init</code></td>
+<td>Scaffolds a <code>slowql.yaml</code> configuration profile in the current directory. Launches an interactive wizard by default, or runs non-interactively if <code>--dialect</code> and <code>--fail-on</code> arguments are provided.</td>
 <td><code>False</code></td>
 </tr>
 <tr>
