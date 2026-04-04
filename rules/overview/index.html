@@ -10767,7 +10767,7 @@
 
 
 <h1 id="rules-overview">Rules Overview</h1>
-<p>SlowQL ships with <strong>272 analysis rules</strong> designed to catch mistakes before they impact production. Rules are categorized across <strong>6 dimensions</strong> and graded on <strong>4 severity levels</strong>.</p>
+<p>SlowQL ships with <strong>282 analysis rules</strong> designed to catch mistakes before they impact production. Rules are categorized across <strong>6 dimensions</strong> and graded on <strong>4 severity levels</strong>.</p>
 <h2 id="dimensions">Dimensions</h2>
 <p>Every rule belongs to a dimension that describes the class of issue it detects:</p>
 <ol>
@@ -10808,7 +10808,7 @@
 <p>Many rules are designated with <code>FixConfidence.SAFE</code> and <code>RemediationMode.SAFE_APPLY</code>. These rules offer a string or AST transformation that guarantees 100% semantic equivalency. By using <code>slowql --fix</code>, SlowQL will instantly rewrite your SQL without altering its logic.</p>
 <h2 id="viewing-the-rules">Viewing the Rules</h2>
 <p>The fastest way to view details about specific rules is directly via the CLI:</p>
-<pre><code class="language-bash"># List all 272 rules
+<pre><code class="language-bash"># List all 282 rules
 slowql --list-rules
 
 # Filter rules to only show Performance checks for Postgres

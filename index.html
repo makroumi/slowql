@@ -501,6 +501,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-the-rule-catalog-via-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore the Rule Catalog via CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-api-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -10696,6 +10724,34 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="Getting Started">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-the-rule-catalog-via-cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explore the Rule Catalog via CLI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#python-api-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Python API Integration
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -10746,6 +10802,16 @@
 <li><a href="usage/ci-cd-integration/"><strong>CI/CD Integration</strong></a> - Enforce headless pipelines within GitHub Actions or GitLab.</li>
 <li><a href="rules/overview/"><strong>Rule Overview</strong></a> - Browse the exact boundaries of all 279 security and performance assertions.</li>
 </ul>
+<h3 id="explore-the-rule-catalog-via-cli">Explore the Rule Catalog via CLI</h3>
+<p>Quickly discover and understand rules directly from your terminal:</p>
+<pre><code class="language-bash">slowql --list-rules
+slowql --explain PERF-SCAN-001
+</code></pre>
+<h3 id="python-api-integration">Python API Integration</h3>
+<p>You don't need the CLI to use SlowQL. Integrate static analysis directly within your Python applications:</p>
+<pre><code class="language-python">import slowql
+result = slowql.analyze(&quot;SELECT * FROM users&quot;)
+</code></pre>
 
 
 
