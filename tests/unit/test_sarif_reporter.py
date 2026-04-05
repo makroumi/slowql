@@ -40,13 +40,12 @@ def _create_mock_result() -> AnalysisResult:
             snippet="SELECT b",
         )
     ]
-    result = AnalysisResult(
+    return AnalysisResult(
         issues=issues,
         statistics=Statistics(),
         timestamp=datetime.now(UTC),
         version="2.1.0",
     )
-    return result
 
 def test_sarif_reporter_structure_and_mapping() -> None:
     result = _create_mock_result()

@@ -82,7 +82,7 @@ class AmbiguousAliasRule(ASTRule):
 
         for node in ast.walk():
             alias = None
-            if isinstance(node, (exp.Alias, exp.Table)):
+            if isinstance(node, exp.Alias | exp.Table):
                 alias = getattr(node, "alias", None)
 
             if alias and len(alias) <= 2 and alias.lower() not in ("as", "id"):
@@ -163,11 +163,8 @@ class ReservedWordAsColumnRule(ASTRule):
         # Check all identifiers, including those sqlglot might identify as words
         for node in ast.walk():
             name = None
-            if isinstance(node, (exp.Column, exp.Table, exp.Identifier)):
-                if isinstance(node, exp.Identifier):
-                    name = node.this
-                else:
-                    name = node.alias_or_name
+            if isinstance(node, exp.Column | exp.Table | exp.Identifier):
+                name = node.this if isinstance(node, exp.Identifier) else node.alias_or_name
 
             if name and isinstance(name, str) and name.upper() in self.RESERVED:
                 issues.append(

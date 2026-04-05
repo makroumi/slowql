@@ -10,6 +10,7 @@ import hashlib
 import pickle
 from pathlib import Path
 from typing import TYPE_CHECKING
+import contextlib
 
 if TYPE_CHECKING:
     from slowql.core.models import AnalysisResult
@@ -29,10 +30,8 @@ class CacheManager:
         # Prevent cache files from being committed by default
         gitignore_path = self.cache_dir / ".gitignore"
         if not gitignore_path.exists():
-            try:
+            with contextlib.suppress(OSError):
                 gitignore_path.write_text("*\n", encoding="utf-8")
-            except OSError:
-                pass
 
     def _get_cache_key(self, file_path: Path, content: str, config_hash: str) -> str:
         """
@@ -84,7 +83,5 @@ class CacheManager:
     def clear(self) -> None:
         """Clear all cached entries."""
         for cache_file in self.cache_dir.glob("*.cache"):
-            try:
+            with contextlib.suppress(Exception):
                 cache_file.unlink()
-            except Exception:
-                pass

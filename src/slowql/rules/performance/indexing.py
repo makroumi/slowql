@@ -241,7 +241,7 @@ class CompositeIndexOrderViolationRule(ASTRule):
             if isinstance(node, exp.Select):
                 where_cols = self._get_where_columns(node)
 
-                for (lead, secondary), required_lead in composite_patterns.items():
+                for (lead, secondary) in composite_patterns.keys():
                     if secondary in where_cols and lead not in where_cols:
                         issues.append(
                             self.create_issue(

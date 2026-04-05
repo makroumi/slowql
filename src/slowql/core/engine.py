@@ -618,7 +618,7 @@ class SlowQL:
 
             with concurrent.futures.ProcessPoolExecutor(max_workers=max_workers) as executor:
                 for path_str, result_or_exc in executor.map(_analyze_file_worker, payloads):
-                    if isinstance(result_or_exc, (SlowQLError, FileNotFoundError)):
+                    if isinstance(result_or_exc, SlowQLError | FileNotFoundError):
                         logger.warning(f"Skipping file due to error: {path_str}")
                     elif isinstance(result_or_exc, Exception):
                         raise ParseError(

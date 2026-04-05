@@ -83,14 +83,14 @@ class MatrixRain:
 
         if ratio < 0.1:  # The Arrow area
             return "bold cyan"
-        elif ratio < 0.35:  # S-L
+        if ratio < 0.35:  # S-L
             return "bold deep_sky_blue1"
-        elif ratio < 0.6:  # O-W
+        if ratio < 0.6:  # O-W
             return "bold medium_purple1"
-        elif ratio < 0.8:  # Q
+        if ratio < 0.8:  # Q
             return "bold magenta"
-        else:  # L
-            return "bold hot_pink"
+        # L
+        return "bold hot_pink"
 
     def _get_logo_position(self) -> tuple[int, int, int]:
         """Calculate the top-left position and width of the logo."""

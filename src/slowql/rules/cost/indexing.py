@@ -104,7 +104,7 @@ class MissingCoveringIndexOpportunityRule(ASTRule):
                     if isinstance(expr, exp.Star):
                         has_star = True
                         break
-                    elif isinstance(expr, exp.Column):
+                    if isinstance(expr, exp.Column):
                         select_cols.add(expr.name.lower())
                     elif isinstance(expr, exp.Alias) and isinstance(expr.this, exp.Column):
                         select_cols.add(expr.this.name.lower())

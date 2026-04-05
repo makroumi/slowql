@@ -50,9 +50,9 @@ def _create_input_side_effect(values, exhaust_action="eof"):
         except StopIteration as e:
             if exhaust_action == "eof":
                 raise EOFError("End of mock input") from e
-            elif exhaust_action == "empty":
+            if exhaust_action == "empty":
                 return ""
-            raise e
+            raise
 
     return side_effect
 

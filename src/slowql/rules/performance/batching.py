@@ -33,7 +33,7 @@ class LargeUnbatchedOperationRule(ASTRule):
         issues = []
 
         for node in ast.walk():
-            if isinstance(node, (exp.Update, exp.Delete)):
+            if isinstance(node, exp.Update | exp.Delete):
                 query_upper = query.raw.upper()
                 has_limit = "TOP" in query_upper or "LIMIT" in query_upper
 

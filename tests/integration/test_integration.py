@@ -13,7 +13,7 @@ print("\n📋 RULES STATUS:")
 rules = get_all_rules()
 print(f"  ✅ Total rules loaded: {len(rules)}")
 print(f"  Sample: {rules[0].id} - {rules[0].name}")
-print(f"  Dimensions: {set(r.dimension.value for r in rules)}")
+print(f"  Dimensions: { {r.dimension.value for r in rules} }")
 
 # 2. Check Registry
 print("\n🏗️  REGISTRY STATUS:")

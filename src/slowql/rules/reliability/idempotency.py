@@ -103,7 +103,7 @@ class NonIdempotentUpdateRule(ASTRule):
                         right = expr.expression
 
                         # Check if right side contains same column (relative update)
-                        if isinstance(right, (exp.Add, exp.Sub)):
+                        if isinstance(right, exp.Add | exp.Sub):
                             left_col = expr.this
 
                             # Check if operation references the same column

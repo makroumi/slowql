@@ -59,7 +59,7 @@ class OrphanRecordRiskRule(ASTRule):
                 columns = self._get_insert_columns(node)
 
                 # Check if any FK-like columns are present
-                fk_columns = set(c.lower() for c in columns) & fk_patterns
+                fk_columns = {c.lower() for c in columns} & fk_patterns
 
                 if fk_columns:
                     # Check if query has subquery or JOIN verifying FK

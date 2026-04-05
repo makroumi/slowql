@@ -89,7 +89,7 @@ class SessionManager:
         minutes, seconds = divmod(remainder, 60)
         if hours > 0:
             return f"{hours}h {minutes}m {seconds}s"
-        elif minutes > 0:
+        if minutes > 0:
             return f"{minutes}m {seconds}s"
         return f"{seconds}s"
 
@@ -258,8 +258,7 @@ def safe_path(path: Path | None) -> Path:
     if path is None:
         return Path.cwd() / "reports"
 
-    resolved = path.resolve()
-    return resolved
+    return path.resolve()
 
 
 def _run_exports(result: AnalysisResult, formats: list[str], out_dir: Path) -> None:
@@ -685,10 +684,8 @@ def _run_analysis(  # noqa: PLR0912
         cache_key = sql_payload_or_paths
     elif len(sql_payload_or_paths) == 1:
         # We can cache single files easily
-        try:
+        with contextlib.suppress(Exception):
             cache_key = sql_payload_or_paths[0].read_text(encoding="utf-8")
-        except Exception:
-            pass
 
     if cache and cache_key:
         result = cache.get(cache_key)
@@ -806,13 +803,12 @@ def _handle_sql_input(  # noqa: PLR0912
             return None, True
 
         return valid_paths, False
-    else:
-        if non_interactive and not is_tty:
-            return None, False  # Break loop only in non-TTY (CI/pipe) contexts
-        sql_payload = _get_sql_input(mode, is_tty, engine, enable_comparison, first_run)
-        if sql_payload is None:  # Special action like 'compare' was run
-            return None, False  # Break loop
-        return sql_payload, False
+    if non_interactive and not is_tty:
+        return None, False  # Break loop only in non-TTY (CI/pipe) contexts
+    sql_payload = _get_sql_input(mode, is_tty, engine, enable_comparison, first_run)
+    if sql_payload is None:  # Special action like 'compare' was run
+        return None, False  # Break loop
+    return sql_payload, False
 
 
 

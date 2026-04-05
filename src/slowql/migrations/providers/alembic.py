@@ -37,7 +37,7 @@ class AlembicSQLScanner(ast.NodeVisitor):
             cols_str = ", ".join(columns) or "dummy_id INT"
             return f"CREATE TABLE {table_name} ({cols_str});"
 
-        elif func_name == "add_column":
+        if func_name == "add_column":
             table_name = self._get_val(args[0])
             col_node = args[1]
             # Handle op.column or op.Column
@@ -51,16 +51,16 @@ class AlembicSQLScanner(ast.NodeVisitor):
             col_name = self._get_val(col_node)
             return f"ALTER TABLE {table_name} ADD COLUMN {col_name} INT;"
 
-        elif func_name == "drop_column":
+        if func_name == "drop_column":
             table_name = self._get_val(args[0])
             col_name = self._get_val(args[1])
             return f"ALTER TABLE {table_name} DROP COLUMN {col_name};"
 
-        elif func_name == "drop_table":
+        if func_name == "drop_table":
             table_name = self._get_val(args[0])
             return f"DROP TABLE {table_name};"
 
-        elif func_name == "create_index":
+        if func_name == "create_index":
             idx_name = self._get_val(args[0])
             table_name = self._get_val(args[1])
             cols_node = args[2]

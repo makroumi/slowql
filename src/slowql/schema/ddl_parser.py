@@ -85,7 +85,7 @@ class DDLParser:
         kind = str(stmt.args.get("kind") or "").upper()
         current_schema = schema
 
-        if kind == "TABLE" or (not kind and isinstance(stmt.this, (exp.Schema, exp.Table))):
+        if kind == "TABLE" or (not kind and isinstance(stmt.this, exp.Schema | exp.Table)):
             table = self._parse_create_table(stmt)
             if table:
                 current_schema = current_schema.add_table(table)

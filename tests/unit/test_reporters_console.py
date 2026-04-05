@@ -36,9 +36,8 @@ class TestConsoleReporterDetails:
         with patch("slowql.reporters.console.Console") as mock_console_cls:
             mock_console = mock_console_cls.return_value
             mock_console.width = 100
-            rep = ConsoleReporter()
+            return ConsoleReporter()
             # We want to keep the mock to check calls, but the class sets self.console
-            return rep
 
     def test_show_clean_report(self, reporter):
         # Test that calling report() with an empty result works correctly.

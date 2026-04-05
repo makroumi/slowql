@@ -223,7 +223,7 @@ class SecondOrderSQLInjectionRule(ASTRule):
         }
 
         for node in ast.walk():
-            if isinstance(node, (exp.Insert, exp.Update)):
+            if isinstance(node, exp.Insert | exp.Update):
                 # Get column names being set
                 columns = self._extract_target_columns(node)
 

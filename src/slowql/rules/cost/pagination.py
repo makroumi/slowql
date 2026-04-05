@@ -11,6 +11,7 @@ from sqlglot import exp
 
 from slowql.core.models import Category, Dimension, Issue, Query, Severity
 from slowql.rules.base import ASTRule, PatternRule
+import contextlib
 
 __all__ = [
     "CountStarForPaginationRule",
@@ -110,22 +111,16 @@ class DeepPaginationWithoutCursorRule(ASTRule):
                     # sqlglot.expressions.Offset has the value in 'expression'
                     offset_expr = offset_obj.args.get("expression")
                     if isinstance(offset_expr, exp.Literal):
-                        try:
+                        with contextlib.suppress(ValueError, AttributeError):
                             offset_value = int(offset_expr.this)
-                        except (ValueError, AttributeError):
-                            pass
                     elif isinstance(offset_obj, exp.Literal):  # Fallback
-                        try:
+                        with contextlib.suppress(ValueError, AttributeError):
                             offset_value = int(offset_obj.this)
-                        except (ValueError, AttributeError):
-                            pass
                 else:
                     match = re.search(r"OFFSET\s+(\d+)", query.raw, re.IGNORECASE)
                     if match:
-                        try:
+                        with contextlib.suppress(ValueError):
                             offset_value = int(match.group(1))
-                        except ValueError:
-                            pass
 
                 if offset_value and offset_value > 1000:
                     issues.append(

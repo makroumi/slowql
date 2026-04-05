@@ -120,7 +120,6 @@ def test_ddl_parser_empty_index_name():
     CREATE INDEX ON t(a);
     """)
     # If it parses, just check it didn't crash
-    pass
 
 def test_ddl_parser_schema_qualification():
     parser = DDLParser()

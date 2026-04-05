@@ -170,6 +170,7 @@ from slowql.rules.catalog import (
     get_all_rules,
 )
 from slowql.rules.registry import RuleRegistry, get_rule_registry
+import contextlib
 
 
 def _make_query(sql: str, dialect: str = "mysql") -> Query:
@@ -177,10 +178,8 @@ def _make_query(sql: str, dialect: str = "mysql") -> Query:
     import sqlglot
 
     ast = None
-    try:
+    with contextlib.suppress(Exception):
         ast = sqlglot.parse_one(sql, read=dialect)
-    except Exception:
-        pass
 
     return Query(
         raw=sql,

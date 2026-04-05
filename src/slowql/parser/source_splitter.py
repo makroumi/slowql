@@ -143,10 +143,7 @@ class SourceSplitter:
         prefix = sql[:offset]
         line = prefix.count('\n') + 1
         last_newline = prefix.rfind('\n')
-        if last_newline == -1:
-            column = offset + 1
-        else:
-            column = offset - last_newline
+        column = offset + 1 if last_newline == -1 else offset - last_newline
         return line, column
 
     def _skip_quoted(self, sql: str, start: int, n: int, quote: str) -> int:

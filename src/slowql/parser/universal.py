@@ -86,8 +86,7 @@ class UniversalParser(BaseParser):
                 return 'x' * length
             return prefix + '_' * (length - len(prefix))
 
-        sql = re.sub(r'\{\{.*?\}\}', repl_expr, sql, flags=re.DOTALL)
-        return sql
+        return re.sub(r'\{\{.*?\}\}', repl_expr, sql, flags=re.DOTALL)
 
     def parse(
         self, sql: str, *, dialect: str | None = None, file_path: str | Path | None = None
@@ -337,4 +336,4 @@ class UniversalParser(BaseParser):
         """Check if the AST represents a DDL statement."""
         if not ast:
             return False
-        return isinstance(ast, (exp.Create, exp.Drop, exp.Alter, exp.Command))
+        return isinstance(ast, exp.Create | exp.Drop | exp.Alter | exp.Command)

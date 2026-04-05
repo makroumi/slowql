@@ -63,7 +63,7 @@ class LockEscalationRiskRule(ASTRule):
         issues = []
 
         for node in ast.walk():
-            if isinstance(node, (exp.Update, exp.Delete)):
+            if isinstance(node, exp.Update | exp.Delete):
                 where = node.args.get("where")
 
                 # No WHERE clause
